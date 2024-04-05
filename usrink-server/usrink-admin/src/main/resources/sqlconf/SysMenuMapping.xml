@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ink.usr.admin.mapper.SysMenuMapper">
+
+    <sql id="selectMenuSql">
+        select menuId,
+               menuName,
+               orderIndex,
+               icon,
+               permKey,
+               parentMenuId,
+               sceneType,
+               menuType,
+               route,
+               component,
+               status
+        from sys_menu
+    </sql>
+
+    <!-- 查询菜单列表 -->
+    <select id="selectSysMenuList" parameterType="ink.usr.common.model.mysql.SysMenuModel"
+            resultType="ink.usr.common.model.mysql.SysMenuModel">
+        <include refid="selectMenuSql"/>
+        <where>
+            <if test="menuName != null and menuName != ''">and menuName like concat('%', #{menuName}, '%')</if>
+            <if test="status != null">and status = #{status}</if>
+        </where>
+        order by orderIndex asc
+    </select>
+
+    <!-- 添加菜单 -->
+    <insert id="insertSysMenu" parameterType="ink.usr.common.model.mysql.SysMenuModel" useGeneratedKeys="true"
+            keyProperty="menuId">
+        insert into sys_menu(
+        <if test="menuName != null and menuName != ''">menuName,</if>
+        <if test="orderIndex != null">orderIndex,</if>
+        <if test="icon != null and icon != ''">icon,</if>
+        <if test="permKey != null and permKey != ''">permKey,</if>
+        <if test="parentMenuId != null">parentMenuId,</if>
+        <if test="sceneType != null">sceneType,</if>
+        <if test="menuType != null">menuType,</if>
+        <if test="route != null and route != ''">route,</if>
+        <if test="component != null and component != ''">component,</if>
+        <if test="status != null">status,</if>
+        createTime,
+        updateTime
+        )values (
+        <if test="menuName != null and menuName != ''">#{menuName},</if>
+        <if test="orderIndex != null">#{orderIndex},</if>
+        <if test="icon != null and icon != ''">#{icon},</if>
+        <if test="permKey != null and permKey != ''">#{permKey},</if>
+        <if test="parentMenuId != null">#{parentMenuId},</if>
+        <if test="sceneType != null">#{sceneType},</if>
+        <if test="menuType != null">#{menuType},</if>
+        <if test="route != null and route != ''">#{route},</if>
+        <if test="component != null and component != ''">#{component},</if>
+        <if test="status != null">#{status},</if>
+        now(),
+        now()
+        )
+    </insert>
+
+    <!-- 更新菜单 -->
+    <update id="updateSysMenu" parameterType="ink.usr.common.model.mysql.SysMenuModel">
+        update sys_menu
+        <set>
+            <if test="menuName != null and menuName != ''">menuName = #{menuName},</if>
+            <if test="orderIndex != null">orderIndex = #{orderIndex},</if>
+            <if test="icon != null and icon != ''">icon = #{icon},</if>
+            <if test="permKey != null and permKey != ''">permKey = #{permKey},</if>
+            <if test="parentMenuId != null">parentMenuId = #{parentMenuId},</if>
+            <if test="sceneType != null">sceneType = #{sceneType},</if>
+            <if test="menuType != null">menuType = #{menuType},</if>
+            <if test="route != null and route != ''">route = #{route},</if>
+            <if test="component != null and component != ''">component = #{component},</if>
+            updateTime = now()
+        </set>
+        where menuId = #{menuId}
+    </update>
+
+    <!-- 逻辑删除菜单 -->
+    <update id="deleteSysMenuLogicById" parameterType="java.lang.Long">
+        update sys_menu
+        set status = -1
+        where menuId = #{menuId}
+          and status = 0
+    </update>
+
+    <!-- 恢复删除的菜单 -->
+    <update id="recoverSysMenuById" parameterType="java.lang.Long">
+        update sys_menu
+        set status = 0
+        where menuId = #{menuId}
+          and status = -1
+    </update>
+
+    <!-- 物理删除菜单 -->
+    <delete id="deleteSysMenuById" parameterType="java.lang.Long">
+        delete
+        from sys_menu
+        where menuId = #{menuId}
+          and status = -1
+    </delete>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ink.usr</groupId>
+        <artifactId>usrink-framework</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>usrink-framework-redis</artifactId>
+    <description>Redis模块，提供Redis的配置，操作类，多数据源等，根据需要导入</description>
+
+</project>

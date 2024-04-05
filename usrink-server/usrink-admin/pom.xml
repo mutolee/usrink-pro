@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ink.usr</groupId>
+        <artifactId>usrink-server</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>usrink-admin</artifactId>
+    <description>后台管理Web服务接口模块，为后台管理系统提供无状态的API接口服务</description>
+
+    <dependencies>
+        <!-- SpringBoot Web容器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 依赖common-base模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-common-base</artifactId>
+        </dependency>
+
+        <!-- 依赖业务接口模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-common-interface</artifactId>
+        </dependency>
+
+        <!-- 数据库模型模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-common-model</artifactId>
+        </dependency>
+
+        <!-- Common-domain模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-common-domain</artifactId>
+        </dependency>
+
+        <!-- Mysql数据库模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-framework-mysql</artifactId>
+        </dependency>
+
+        <!-- Shiro模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-framework-shiro</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- SpringBoot Maven插件，用来打包SpringBoot项目 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!--
+                                通过执行repackage目标将Spring Boot应用打包为可执行的JAR文件，
+                                该JAR文件包含了所有的依赖，可以通过java -jar命令直接运行。
+                            -->
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

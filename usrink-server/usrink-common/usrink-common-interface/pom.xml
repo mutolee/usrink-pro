@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ink.usr</groupId>
+        <artifactId>usrink-common</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>usrink-common-interface</artifactId>
+    <description>业务层接口模块，独立运行的模块的业务接口在此模块定义</description>
+
+    <dependencies>
+        <!-- 依赖common-domain模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-common-domain</artifactId>
+        </dependency>
+
+        <!-- 依赖common-model模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-common-model</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
