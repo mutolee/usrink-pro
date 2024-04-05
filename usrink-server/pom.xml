@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ink.usr</groupId>
+    <artifactId>usrink-server</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>usrink-server</name>
+    <description>UsrInk管理系统</description>
+
+    <modules>
+        <module>usrink-common</module>
+        <module>usrink-admin</module>
+        <module>usrink-api</module>
+        <module>usrink-framework</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <oshi.version>6.5.0</oshi.version>
+        <druid.version>1.2.20</druid.version>
+        <mybatis-spring-boot-starter.version>2.3.2</mybatis-spring-boot-starter.version>
+        <mysql.version>8.0.33</mysql.version>
+        <shiro-spring.version>1.13.0</shiro-spring.version>
+        <jwt.version>4.2.1</jwt.version>
+        <pagehelper.version>2.1.0</pagehelper.version>
+    </properties>
+
+    <!-- 依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 公共核心模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-common-base</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- 通用接口模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-common-interface</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- 数据库模型模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-common-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- 通用领域模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-common-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Mysql数据库模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-framework-mysql</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Mongo数据库模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-framework-mongo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Redis数据库模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-framework-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- 获取系统信息 -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
+            </dependency>
+
+            <!-- Shiro模块 -->
+            <dependency>
+                <groupId>ink.usr</groupId>
+                <artifactId>usrink-framework-shiro</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- 阿里数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- Mybatis 支持 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+
+            <!-- Mysql驱动包 -->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- Shiro使用Spring框架 -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro-spring.version}</version>
+            </dependency>
+
+            <!-- JWT (JSON Web Token) -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <!-- 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

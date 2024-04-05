@@ -1,0 +1,28 @@
+{
+    "name": "usrink-client",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@element-plus/icons-vue": "^2.3.1",
+        "axios": "^1.6.0",
+        "element-plus": "^2.6.0",
+        "js-cookie": "^3.0.5",
+        "js-md5": "^0.8.3",
+        "nprogress": "^0.2.0",
+        "pinia": "^2.1.7",
+        "pinia-plugin-persist": "^1.0.0",
+        "vue": "^3.3.4",
+        "vue-img-cutter": "^3.0.4",
+        "vue-router": "^4.2.5"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^5.0.4",
+        "vite": "^5.2.7"
+    }
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ink.usr.admin.mapper.SysRoleMapper">
+
+    <sql id="selectSysRoleSql">
+        select roleId,
+               roleName,
+               rolePermKey,
+               roleMenuIds,
+               roleDesc,
+               status
+        from sys_role
+    </sql>
+
+    <!-- 根据角色ID，查询角色信息 -->
+    <select id="selectRoleById" parameterType="java.lang.Long" resultType="ink.usr.common.model.mysql.SysRoleModel">
+        <include refid="selectSysRoleSql"/>
+        where roleId = #{roleId}
+    </select>
+
+    <!-- 查询角色列表 -->
+    <select id="selectSysRoleList" parameterType="ink.usr.common.model.mysql.SysRoleModel"
+            resultType="ink.usr.common.model.mysql.SysRoleModel">
+        <include refid="selectSysRoleSql"/>
+        <where>
+            <if test="roleName != null and roleName != ''">and roleName like concat('%', #{roleName}, '%')</if>
+            <if test="rolePermKey != null and rolePermKey != ''">and rolePermKey like concat('%', #{rolePermKey}, '%')
+            </if>
+            <if test="status != null">and status = #{status}</if>
+        </where>
+        order by roleId asc
+    </select>
+
+    <!-- 添加角色 -->
+    <insert id="insertSysRole" parameterType="ink.usr.common.model.mysql.SysRoleModel" useGeneratedKeys="true"
+            keyProperty="roleId">
+        insert into sys_role(
+        <if test="roleName != null and roleName != ''">roleName,</if>
+        <if test="rolePermKey != null and rolePermKey != ''">rolePermKey,</if>
+        <if test="roleMenuIds != null and roleMenuIds != ''">roleMenuIds,</if>
+        <if test="roleDesc != null and roleDesc != ''">roleDesc,</if>
+        <if test="status != null">status,</if>
+        createTime,
+        updateTime
+        )values (
+        <if test="roleName != null and roleName != ''">#{roleName},</if>
+        <if test="rolePermKey != null and rolePermKey != ''">#{rolePermKey},</if>
+        <if test="roleMenuIds != null and roleMenuIds != ''">#{roleMenuIds},</if>
+        <if test="roleDesc != null and roleDesc != ''">#{roleDesc},</if>
+        <if test="status != null">#{status},</if>
+        now(),
+        now()
+        )
+    </insert>
+
+    <!-- 修改角色 -->
+    <update id="updateSysRole" parameterType="ink.usr.common.model.mysql.SysRoleModel">
+        update sys_role
+        <set>
+            <if test="roleName != null and roleName != ''">roleName = #{roleName},</if>
+            <if test="rolePermKey != null and rolePermKey != ''">rolePermKey = #{rolePermKey},</if>
+            <if test="roleDesc != null and roleDesc != ''">roleDesc = #{roleDesc},</if>
+            updateTime = now()
+        </set>
+        where roleId = #{roleId}
+    </update>
+
+    <!-- 更加角色的权限 -->
+    <update id="updateSysRolePerm" parameterType="ink.usr.common.model.mysql.SysRoleModel">
+        update sys_role
+        <set>
+            roleMenuIds = #{roleMenuIds},
+            updateTime = now()
+        </set>
+        where roleId = #{roleId}
+    </update>
+
+    <!-- 更新用户角色为默认角色 -->
+    <update id="updateUserRoleToDefault" parameterType="java.lang.Long">
+        update sys_user
+        set userRoleId = 2
+        where userRoleId = #{roleId}
+    </update>
+
+    <!-- 逻辑删除角色 -->
+    <update id="deleteSysRoleLogicById" parameterType="java.lang.Long">
+        update sys_role
+        set status = -1
+        where roleId = #{roleId}
+          and status = 0
+    </update>
+
+    <!-- 恢复删除的角色 -->
+    <update id="recoverSysRoleById" parameterType="java.lang.Long">
+        update sys_role
+        set status = 0
+        where roleId = #{roleId}
+          and status = -1
+    </update>
+
+    <!-- 删除角色 -->
+    <delete id="deleteSysRoleById" parameterType="java.lang.Long">
+        delete
+        from sys_role
+        where roleId = #{roleId}
+          and status = -1
+    </delete>
+
+</mapper>

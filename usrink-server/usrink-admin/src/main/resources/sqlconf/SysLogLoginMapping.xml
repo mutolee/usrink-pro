@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ink.usr.admin.mapper.SysLogLoginMapper">
+
+    <sql id="selectLogLoginListSql">
+        select logId,
+               userName,
+               reqUrl,
+               reqType,
+               ipAddr,
+               location,
+               browser,
+               os,
+               costTime,
+               createTime,
+               status
+        from sys_log_login
+    </sql>
+
+    <sql id="selectLogLoginInfoSql">
+        select logId,
+               userName,
+               reqUrl,
+               reqParam,
+               reqType,
+               ipAddr,
+               location,
+               browser,
+               os,
+               result,
+               costTime,
+               createTime,
+               status
+        from sys_log_login
+    </sql>
+
+    <!-- 查询登录日志列表 -->
+    <select id="selectSysLogLoginList" parameterType="ink.usr.common.domain.admin.SysLogLoginForm"
+            resultType="ink.usr.common.model.mysql.SysLogLoginModel">
+        <include refid="selectLogLoginListSql"/>
+        <where>
+            <if test="userName != null and userName != ''">and userName like concat('%', #{userName}, '%')</if>
+            <if test="location != null and location != ''">and location like concat('%', #{location}, '%')</if>
+            <if test="startTime != null and startTime != ''">and createTime &gt;= #{startTime}</if>
+            <if test="endTime != null and endTime != ''">and createTime &lt;= #{endTime}</if>
+            <if test="status != null">and status = #{status}</if>
+        </where>
+        order by logId desc
+    </select>
+
+    <!-- 查询登录日志详情 -->
+    <select id="selectSysLogLoginInfo" parameterType="java.lang.Long"
+            resultType="ink.usr.common.model.mysql.SysLogLoginModel">
+        <include refid="selectLogLoginInfoSql"/>
+        where logId = #{logId}
+    </select>
+
+    <!-- 添加登录日志 -->
+    <insert id="insertSysLogLogin" parameterType="ink.usr.common.model.mysql.SysLogLoginModel" useGeneratedKeys="true"
+            keyProperty="logId">
+        insert into sys_log_login(
+        <if test="userName != null and userName != ''">userName,</if>
+        <if test="reqUrl != null and reqUrl != ''">reqUrl,</if>
+        <if test="reqParam != null and reqParam != ''">reqParam,</if>
+        <if test="reqType != null and reqType != ''">reqType,</if>
+        <if test="ipAddr != null and ipAddr != ''">ipAddr,</if>
+        <if test="location != null and location != ''">location,</if>
+        <if test="browser != null and browser != ''">browser,</if>
+        <if test="os != null and os != ''">os,</if>
+        <if test="result != null and result != ''">result,</if>
+        <if test="costTime != null">costTime,</if>
+        createTime,
+        status
+        )values (
+        <if test="userName != null and userName != ''">#{userName},</if>
+        <if test="reqUrl != null and reqUrl != ''">#{reqUrl},</if>
+        <if test="reqParam != null and reqParam != ''">#{reqParam},</if>
+        <if test="reqType != null and reqType != ''">#{reqType},</if>
+        <if test="ipAddr != null and ipAddr != ''">#{ipAddr},</if>
+        <if test="location != null and location != ''">#{location},</if>
+        <if test="browser != null and browser != ''">#{browser},</if>
+        <if test="os != null and os != ''">#{os},</if>
+        <if test="result != null and result != ''">#{result},</if>
+        <if test="costTime != null">#{costTime},</if>
+        now(),
+        #{status}
+        )
+    </insert>
+
+    <!-- 物理删除登录日志 -->
+    <delete id="deleteSysLogLogin" parameterType="java.lang.Long">
+        delete
+        from sys_log_login
+        where logId = #{logId}
+    </delete>
+
+    <!-- 更加时间删除登录日志 -->
+    <delete id="deleteSysLogLoginByTime" parameterType="ink.usr.common.domain.admin.SysLogLoginForm">
+        delete from sys_log_login where logId > 0
+        <if test="startTime != null and startTime != ''">and createTime &gt;= #{startTime}</if>
+        <if test="endTime != null and endTime != ''">and createTime &lt;= #{endTime}</if>
+    </delete>
+
+</mapper>
