@@ -1,6 +1,6 @@
 ## 项目介绍
 
-UsrInk-Pro 是一个基于SpringBoot + Vue3 + ElementPlus 的无状态前后端分离的后台管理系统，轻量、没有重度依赖，模块设计优雅，管理界面美观，可快速进行二次开发。
+UsrInk-Pro 是一个基于SpringBoot + Mybatis + Shiro + Jwt + Vue3 + ElementPlus 的无状态前后端分离的后台管理系统，轻量、没有重度依赖，模块设计优雅，管理界面美观，可快速进行二次开发。
 
 ### 初衷
 
@@ -180,7 +180,69 @@ public class HelloWorldController {
 
 体验账号：`usrink` 密码：`123456`
 
+## 项目部署
+
+### 服务端
+
+1. 配置运行模式，进入 usrink-admin 模块，找到 application.properties 文件，修改 `spring.profiles.active=prod`。
+2. 配置文件上传目录，进入 usrink-admin 模块，找到 application-prod.properties 文件，修改 `file.upload.path=/data_disk/usrink/upload/`。
+3. 配置数据库连接，进入 usrink-admin 模块，找到 db/mysql/druid-mysql-prod.properties 文件，修改 `master.druid.datasource.url`，`master.druid.datasource.username`，`master.druid.datasource.password`。
+4. 打包项目，进入 usrink-server 目录，执行 `mvn clean package`，打包完成后，会在 usrink-admin/target 目录下生成一个可执行 `usrink-admin-x.x.x.jar` 包。
+5. 运行项目，执行 `java -jar usrink-admin-x.x.x.jar`，启动服务。
+
+### 前端
+
+1. 配置服务器地址，进入 usrink-client/src/utils/Constant.js 文件，修改 `HTTP_BASE_URL` 为 http\://xxx.com/admin-api。xxx.com为你的服务器地址。
+2. 打包项目，进入 usrink-client 目录，执行 `npm run build`，打包完成后，会在 usrink-client/dist 下生成相关html/js/css。
+
+### 服务器容器
+
+以Nginx为例，部署前端项目。
+
+1. 安装Nginx，配置Nginx，找到Nginx配置文件，添加如下配置：
+
+```nginx
+server {
+    listen 80;
+    
+    # 你的域名
+    server_name xxx.com www.xxx.com;
+
+    # 前端项目打包后的文件夹，可自行修改
+    root /data_disk/usrink/client/dist;
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # 后端资源访问路径
+    location /res/ {
+        proxy_pass http://localhost:9999/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # 后端服务的API接口
+    location /admin-api/ {
+        proxy_pass http://localhost:9999/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+配置文件描述：`xxx.com` 为你的访问地址，`/data_disk/usrink/client/dist` 为前端项目打包后的文件夹，可自行修改，`/res/` 为后端资源访问路径，/admin-api/` 为后端服务的API接口。
+
+2. 重启Nginx，访问 http\://xxx.com，即可访问项目。
+
+<font color=red>注意：部署后，登录系统后台，一定要修改系统默认的3个用户的密码，切记！！！。</font>
+
 ## 截图
+
 
 
 
