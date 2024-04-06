@@ -192,7 +192,7 @@ public class HelloWorldController {
 
 ### 前端
 
-1. 配置服务器地址，进入 usrink-client/src/utils/Constant.js 文件，修改 `HTTP_BASE_URL` 为 http\://xxx.com/admin-api。xxx.com为你的服务器地址。
+1. 配置服务器地址，进入 usrink-client/src/utils/Constant.js 文件，修改 `HTTP_BASE_URL` 为 "http\://xxx.com/admin-api"。xxx.com为你的服务器地址。
 2. 打包项目，进入 usrink-client 目录，执行 `npm run build`，打包完成后，会在 usrink-client/dist 下生成相关html/js/css。
 
 ### 服务器容器
@@ -237,13 +237,21 @@ server {
 ```
 配置文件描述：`xxx.com` 为你的访问地址，`/data_disk/usrink/client/dist` 为前端项目打包后的文件夹，可自行修改，`/res/` 为后端资源访问路径，/admin-api/` 为后端服务的API接口。
 
-2. 重启Nginx，访问 http\://xxx.com，即可访问项目。
+2. 重启Nginx，访问 "http\://xxx.com"，即可访问项目。
 
 <font color=red>注意：部署后，登录系统后台，一定要修改系统默认的3个用户的密码，切记！！！。</font>
 
-## 截图
+## 系统美图
 
-
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG61.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG62.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG63.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG64.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG65.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG66.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG67.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG68.jpeg?raw=true" />
+<img src="https://github.com/mutolee/usrink-pro/blob/main/usrink-client/public/img/WechatIMG69.jpeg?raw=true" />
 
 
 
