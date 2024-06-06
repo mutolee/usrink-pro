@@ -222,7 +222,7 @@ server {
 
     # 后端资源访问路径
     location /res/ {
-        proxy_pass http://localhost:9999/;
+        proxy_pass http://localhost:9999/res/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
