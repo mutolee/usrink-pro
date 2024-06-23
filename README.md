@@ -217,7 +217,8 @@ server {
     index index.html index.htm;
 
     location / {
-        try_files $uri $uri/ =404;
+        # 访问的文件不存在时，重定向到/,也就是index.html
+        try_files $uri $uri/ /;
     }
 
     # 后端资源访问路径
