@@ -12,10 +12,10 @@ import java.util.Date;
 public class JwtUtil {
 
     // 秘钥，默认为 ink-usr-jwt-secret-123456，可通过 init 方法修改
-    public static String SECRET = "ink-usr-jwt-secret-123456";
+    private static String SECRET = "ink-usr-jwt-secret-123456";
 
     // 过期时间，单位（MS），默认为7天
-    public static long EXPIRE = 1000 * 60 * 60 * 24 * 7;
+    private static long EXPIRE = 1000 * 60 * 60 * 24 * 7;
 
 
     /**
