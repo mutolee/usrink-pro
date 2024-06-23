@@ -117,7 +117,6 @@ public class SysLoginAspectj {
 
             // 保存登录日志
             SpringBeanUtil.getBean(ISysLogLoginService.class).insertSysLogLogin(sysLogLoginModel);
-            return null;
         });
     }
 

@@ -156,7 +156,6 @@ public class SysOperatorAspectj {
 
             // 保存登录日志
             SpringBeanUtil.getBean(ISysLogOperatorService.class).insertSysLogOperator(sysLogOperatorModel);
-            return null;
         });
     }
 }
