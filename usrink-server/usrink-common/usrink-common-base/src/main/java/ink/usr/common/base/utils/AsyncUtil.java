@@ -2,6 +2,7 @@ package ink.usr.common.base.utils;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * 异步工具类
@@ -17,7 +18,7 @@ public class AsyncUtil {
      * 异步任务接口
      */
     public interface AsyncTask<T> {
-        T call() throws Exception;
+        T call();
     }
 
     /**
@@ -25,8 +26,17 @@ public class AsyncUtil {
      *
      * @param task 异步任务
      */
-    public static <T> void executeAsyncTask(AsyncTask<T> task) {
-        executor.submit(task::call);
+    public static <T> Future<T> executeAsyncTask(AsyncTask<T> task) {
+        return executor.submit(task::call);
+    }
+
+    /**
+     * 执行异步任务
+     *
+     * @param task 异步任务
+     */
+    public static void executeAsyncTask(Runnable task) {
+        executor.submit(task);
     }
 
 }
