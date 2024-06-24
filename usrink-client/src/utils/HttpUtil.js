@@ -57,7 +57,11 @@ instance.interceptors.response.use((response) => {
     return Promise.reject(new Error(res.msg || 'Unknown Error'));
 }, (error) => {
     // 对响应错误做点什么
-    ElMessage.error("操作失败，请刷新浏览器再次尝试，或联系管理员！");
+    ElMessage({
+        dangerouslyUseHTMLString: true,
+        type: 'error',
+        message: '操作失败，请刷新浏览器再次尝试，或联系管理员。&nbsp;&nbsp;微信：<strong><i>Super_Mutolee</i></strong>',
+    })
     return Promise.reject(error);
 });
 
