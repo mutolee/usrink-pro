@@ -52,7 +52,8 @@ const submitLogin = () => {
     <section class="usr_login">
         <el-form
             :model="loginForm"
-            class="el_form_override">
+            class="el_form_override"
+            @submit.native.prevent @keyup.enter="submitLogin">
             <h3>
                 <el-icon
                     :size="36"
