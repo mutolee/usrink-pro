@@ -1,9 +1,9 @@
 package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysMenuDao;
-import ink.usr.common.base.exception.base.BusinessException;
-import ink.usr.common.base.utils.CollUtil;
-import ink.usr.common.base.utils.StringUtil;
+import ink.usr.common.core.exception.base.BusinessException;
+import ink.usr.common.core.utils.CollUtil;
+import ink.usr.common.core.utils.StringUtil;
 import ink.usr.common.domain.admin.MenuPageInfo;
 import ink.usr.common.domain.admin.SysUserMenus;
 import ink.usr.common.interfaces.admin.ISysLoginService;

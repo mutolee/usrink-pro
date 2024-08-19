@@ -17,7 +17,7 @@
     <modules>
         <module>usrink-common-interface</module>
         <module>usrink-common-model</module>
-        <module>usrink-common-base</module>
+        <module>usrink-common-core</module>
         <module>usrink-common-domain</module>
     </modules>
 

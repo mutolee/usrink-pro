@@ -2,7 +2,7 @@ package ink.usr.framework.mysql.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
-import ink.usr.common.base.utils.SpringBeanUtil;
+import ink.usr.common.core.utils.SpringBeanUtil;
 import ink.usr.framework.mysql.DynamicDataSource;
 import ink.usr.framework.mysql.config.properties.base.DruidBaseProperties;
 import ink.usr.framework.mysql.enums.Ds;

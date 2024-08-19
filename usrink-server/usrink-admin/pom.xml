@@ -19,10 +19,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- 依赖common-base模块 -->
+        <!-- 依赖common-core模块 -->
         <dependency>
             <groupId>ink.usr</groupId>
-            <artifactId>usrink-common-base</artifactId>
+            <artifactId>usrink-common-core</artifactId>
         </dependency>
 
         <!-- 依赖业务接口模块 -->

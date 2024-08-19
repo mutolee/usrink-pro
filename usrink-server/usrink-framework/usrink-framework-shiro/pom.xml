@@ -15,10 +15,10 @@
 
     <dependencies>
 
-        <!-- 依赖common-base模块 -->
+        <!-- 依赖common-core模块 -->
         <dependency>
             <groupId>ink.usr</groupId>
-            <artifactId>usrink-common-base</artifactId>
+            <artifactId>usrink-common-core</artifactId>
         </dependency>
 
         <!-- SpringBoot Web容器 -->

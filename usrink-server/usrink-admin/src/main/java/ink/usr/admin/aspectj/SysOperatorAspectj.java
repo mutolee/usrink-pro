@@ -1,8 +1,8 @@
 package ink.usr.admin.aspectj;
 
 import ink.usr.admin.service.ShiroService;
-import ink.usr.common.base.annotation.Log;
-import ink.usr.common.base.utils.*;
+import ink.usr.common.core.annotation.Log;
+import ink.usr.common.core.utils.*;
 import ink.usr.common.interfaces.admin.ISysLogOperatorService;
 import ink.usr.common.model.mysql.SysLogOperatorModel;
 import ink.usr.framework.shiro.domain.ShiroRoleInfo;
