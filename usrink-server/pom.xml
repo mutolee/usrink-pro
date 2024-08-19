@@ -34,6 +34,20 @@
         <pagehelper.version>2.1.0</pagehelper.version>
     </properties>
 
+    <!-- 仓库 -->
+    <repositories>
+        <repository>
+            <id>aliyun-public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <!-- 依赖管理 -->
     <dependencyManagement>
         <dependencies>
