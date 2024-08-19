@@ -2,10 +2,10 @@ package ink.usr.admin.controller;
 
 import com.github.pagehelper.Page;
 import ink.usr.admin.service.ShiroService;
-import ink.usr.common.base.annotation.Log;
-import ink.usr.common.base.domain.Dict;
-import ink.usr.common.base.domain.Res;
-import ink.usr.common.base.utils.PageUtil;
+import ink.usr.common.core.annotation.Log;
+import ink.usr.common.core.domain.Dict;
+import ink.usr.common.core.domain.Res;
+import ink.usr.common.core.utils.PageUtil;
 import ink.usr.common.interfaces.admin.ISysRoleService;
 import ink.usr.common.model.mysql.SysRoleModel;
 import ink.usr.framework.shiro.domain.ShiroRoleInfo;

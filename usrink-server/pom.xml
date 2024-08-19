@@ -63,7 +63,7 @@
             <!-- 公共核心模块 -->
             <dependency>
                 <groupId>ink.usr</groupId>
-                <artifactId>usrink-common-base</artifactId>
+                <artifactId>usrink-common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

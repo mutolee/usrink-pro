@@ -2,12 +2,12 @@ package ink.usr.admin.controller;
 
 import com.github.pagehelper.Page;
 import ink.usr.admin.service.ShiroService;
-import ink.usr.common.base.annotation.Log;
-import ink.usr.common.base.constants.Constants;
-import ink.usr.common.base.domain.Dict;
-import ink.usr.common.base.domain.Res;
-import ink.usr.common.base.exception.base.BusinessException;
-import ink.usr.common.base.utils.*;
+import ink.usr.common.core.annotation.Log;
+import ink.usr.common.core.constants.Constants;
+import ink.usr.common.core.domain.Dict;
+import ink.usr.common.core.domain.Res;
+import ink.usr.common.core.exception.base.BusinessException;
+import ink.usr.common.core.utils.*;
 import ink.usr.common.domain.admin.SysUserInfo;
 import ink.usr.common.domain.admin.UpdatePwdForm;
 import ink.usr.common.interfaces.admin.ISysRoleService;

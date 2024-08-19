@@ -2,10 +2,10 @@ package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysRoleDao;
 import ink.usr.admin.dao.SysUserDao;
-import ink.usr.common.base.constants.Constants;
-import ink.usr.common.base.exception.WarningException;
-import ink.usr.common.base.exception.base.BusinessException;
-import ink.usr.common.base.utils.Md5Util;
+import ink.usr.common.core.constants.Constants;
+import ink.usr.common.core.exception.WarningException;
+import ink.usr.common.core.exception.base.BusinessException;
+import ink.usr.common.core.utils.Md5Util;
 import ink.usr.common.domain.admin.UpdatePwdForm;
 import ink.usr.common.interfaces.admin.ISysUserService;
 import ink.usr.common.model.mysql.SysRoleModel;

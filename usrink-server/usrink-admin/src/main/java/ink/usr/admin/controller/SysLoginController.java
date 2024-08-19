@@ -1,9 +1,9 @@
 package ink.usr.admin.controller;
 
 import ink.usr.admin.service.ShiroService;
-import ink.usr.common.base.annotation.Log;
-import ink.usr.common.base.domain.Dict;
-import ink.usr.common.base.domain.Res;
+import ink.usr.common.core.annotation.Log;
+import ink.usr.common.core.domain.Dict;
+import ink.usr.common.core.domain.Res;
 import ink.usr.common.domain.admin.SysUserMenus;
 import ink.usr.common.interfaces.admin.ISysLoginService;
 import ink.usr.common.interfaces.admin.ISysRoleService;
