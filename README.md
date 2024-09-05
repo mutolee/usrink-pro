@@ -12,7 +12,7 @@ UsrInk-Pro 是我为了不用每次有了新项目，再搞重复事情，如系
     ├── usrink-admin               后台管理Web服务接口模块，为后台管理系统提供无状态的API接口
     ├── userink-api                前端Web服务接口模块，为网站，APP，小程序等提供无状态的API接口
     ├── usrink-common        
-    ├──── usrink-common-base       通用核心模块，提供基础工具类、通用配置、异常处理等
+    ├──── usrink-common-core       通用核心模块，提供基础工具类、通用配置、异常处理等
     ├──── usrink-common-domain     通用实体模块，业务实体类放在此模块，如POJO，VO，BO等，被其他模块引用
     ├──── usrink-common-interface  业务层接口模块，独立运行的模块的业务接口在此模块定义
     ├──── usrink-common-model      提供数据库表与对象映射，对象属性与数据库字段一一对应
