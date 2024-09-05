@@ -43,14 +43,13 @@ public class SysLoginController {
      */
     @RequestMapping(value = "/login")
     public Res login(String userName, String password) {
-        Subject subject = SecurityUtils.getSubject();
         // 创建一个用户名密码令牌
         UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
 
         // Shiro进行身份认证
         // 用户名不存在将抛出Shiro的UnknownAccountException异常
         // 密码错误将抛出Shiro的IncorrectCredentialsException异常
-        subject.login(token);
+        SecurityUtils.getSubject().login(token);
 
         // 用户认证凭证信息
         ShiroUserInfo shiroUserInfo = ShiroUtil.getShiroUserInfo();
