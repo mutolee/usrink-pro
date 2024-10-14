@@ -13,12 +13,24 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
+// 状态管理插件
+import store from "@/stores/index.js";
+// 路由管理插件
+import router from "@/router/index.js";
+
+
 
 /**
  * 第三方管理插件，所有的第三方的配置都在这里管理，不限于第三方的注册、配置等
  * @param app 根实例对象
  */
 const thirdPlugin = (app) => {
+
+    // 状态管理插件配置
+    app.use(store)
+    // 路由管理插件配置
+    app.use(router)
+
     // ElementPlus 插件配置
     app.use(ElementPlus, {size: 'medium', zIndex: 3000, locale: zhCn})
 
