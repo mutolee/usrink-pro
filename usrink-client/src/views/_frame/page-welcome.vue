@@ -264,7 +264,7 @@ const loadJvmInfo = () => {
         </el-row>
         <el-row>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="openPage('/welcome')" shadow="hover" class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="openPage('/welcome')" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#409eff'">
                         <HomeFilled/>
                     </el-icon>
@@ -272,7 +272,7 @@ const loadJvmInfo = () => {
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="openPage('/sys/user')" shadow="hover" class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="openPage('/sys/user')" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#17a997'">
                         <User/>
                     </el-icon>
@@ -280,7 +280,7 @@ const loadJvmInfo = () => {
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="openPage('/sys/role')" shadow="hover" class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="openPage('/sys/role')" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#60941f'">
                         <UserFilled/>
                     </el-icon>
@@ -288,7 +288,7 @@ const loadJvmInfo = () => {
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="openPage('/sys/menu')" shadow="hover" class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="openPage('/sys/menu')" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#088f75'">
                         <Menu/>
                     </el-icon>
@@ -296,8 +296,7 @@ const loadJvmInfo = () => {
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="openPage('/sys/log/login')" shadow="hover"
-                         class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="openPage('/sys/log/login')" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#cb8c1d'">
                         <Tickets/>
                     </el-icon>
@@ -305,8 +304,7 @@ const loadJvmInfo = () => {
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="openPage('/sys/log/operator')" shadow="hover"
-                         class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="openPage('/sys/log/operator')" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#731f94'">
                         <Files/>
                     </el-icon>
@@ -314,8 +312,7 @@ const loadJvmInfo = () => {
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="openPage('/profile/info')" shadow="hover"
-                         class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="openPage('/profile/info')" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#1d310e'">
                         <Avatar/>
                     </el-icon>
@@ -323,7 +320,7 @@ const loadJvmInfo = () => {
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :md="6" :lg="3" :xl="3">
-                <el-card @click="logout" shadow="hover" class="usr_el_card_override usr_el_card_button">
+                <el-card body-class="card_hover" @click="logout" shadow="hover" class="usr_el_card_override usr_el_card_button">
                     <el-icon :size="36" :color="'#b32eb6'">
                         <SwitchButton/>
                     </el-icon>
@@ -539,11 +536,16 @@ const loadJvmInfo = () => {
     margin-right: 5px;
 }
 
+:deep(.usr_el_card_button) .card_hover:hover{
+  cursor: pointer;
+}
+
 :deep(.usr_el_card_button) .el-card__body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 
 :deep(.usr_el_card_button) .el-card__body p {
     padding-top: 15px;
