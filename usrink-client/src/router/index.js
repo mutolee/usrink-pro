@@ -31,9 +31,10 @@ const routes = [
     // 404 Notfound
     // 理论上，这里应该永远匹配不到，因为路由守卫前置拦截会把将要访问的路由重定向的对应的路由上
     // 比如访问了`/aaa`一个不存在的路由，
-    // 前置守卫会判断用户是否已经授权登录，如果没有会被重定向到`/login`
-    // 如果已经授权登录了，但该路由不在用户的权限内，会被重定向到`/forbidden`
-    {path: '/:pathMatch(.*)*', component: usrFrameNotfound}
+    // 前置守卫会判断用户是否已经授权登录，如果没有会被重定向到`/login`；
+    // 如果已经授权登录了，但该路由不在用户的权限内，会被重定向到`/forbidden`。
+    // 只有一种情况例外：用户已经授权登录，且该路由在用户的权限内，但是该路由对应的组件不存在，这种情况下会渲染`usrFrameNotfound`组件
+    {path: '/:pathMatch(.*)*', component: usrFrameNotfound},
 ]
 
 /**
@@ -86,7 +87,7 @@ router.beforeEach(async (to) => {
             return false
         }
 
-        // 验证用户当前请求是否拥有路由的权限，如果没有，页面跳转到`/302`
+        // 验证用户当前请求是否拥有路由的权限，如果没有，页面跳转到`/forbidden`
         if (!isPermThisRoute(to)) {
             return '/forbidden'
         }
@@ -157,7 +158,7 @@ const routesProcess = (userMenus) => {
     loopRoutes(routesAll, userMenus.pages)
 
     // 添加系统内置的静态路由部分到系统所有路由
-    // Why? 为什么要添加静态页面部分，如果不添加，用户就没有权限访问/302,/welcome的页面
+    // Why? 为什么要添加静态页面部分，如果不添加，用户就没有权限访问/forbidden,/welcome的页面
     routesAll.push({
         label: '无权访问', path: '/forbidden', breadcrumb: ['无权访问页面']
     }, {
