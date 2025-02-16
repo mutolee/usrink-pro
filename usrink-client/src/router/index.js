@@ -3,7 +3,7 @@ import usrFrameLogin from "@/components/_frame/usr-frame-login.vue"
 import pageWelcome from "@/views/_frame/page-welcome.vue"
 import usrFrameNotfound from "@/components/_frame/usr-frame-notfound.vue"
 import usrFrameForbidden from "@/components/_frame/usr-frame-forbidden.vue";
-import {createRouter, createWebHashHistory} from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import NProgress from 'nprogress'
 import loginUtil from "@/utils/LoginUtil";
 import httpUtil from "@/utils/HttpUtil";
@@ -44,14 +44,15 @@ const routes = [
  */
 const router = createRouter({
     // 我们在这里使用 hash 模式，它在URL后面使用了一个哈希字符（#），#后面的数据不会发往服务器
-    history: createWebHashHistory(),
+    // history: createWebHashHistory(),
+    // 使用 history 模式，URL后没有一个哈希字符（#），但是这种模式要求服务器配置来支持
+    history: createWebHistory(),
     routes, // `routes: routes` 的缩写
 })
 
 // 配置Router实例全局拦截器
 // 全局前置路由守卫，每一次路由跳转前都进入这个 beforeEach 函数
 router.beforeEach(async (to) => {
-
     // 开启页面进度条
     NProgress.start()
 
@@ -228,8 +229,6 @@ const loopRoutes = (routesAll, routes, breadcrumb) => {
  * @param routesAll 系统所有路由
  */
 const addRoute = (routesAll) => {
-    // 读取所有路由视图组件
-    let modules = import.meta.glob('@/views/**/*.vue')
     for (let i = 0; i < routesAll.length; i++) {
         let route = routesAll[i]
         // 过滤掉内置的静态路由
@@ -241,7 +240,9 @@ const addRoute = (routesAll) => {
         router.addRoute('gen', {
             path: route.path,
             // 路由懒加载
-            component: modules['/src/views' + route.component + '.vue']
+            // @vite-ignore 是vite的注释，用于告诉vite忽略这个路径，不要去解析这个路径，这个路径没错，
+            // 但是不符合vite的解析规则，所以需要忽略掉，不然会报警告
+            component: () => import(/* @vite-ignore */`/src/views${route.component}.vue`)
         });
     }
 }
