@@ -220,6 +220,11 @@ const loopRoutes = (routesAll, routes, breadcrumb) => {
     }
 }
 
+// 使用 Vite 的 import.meta.glob 方法动态导入所有位于 '@/views' 目录下的 .vue 文件
+// 返回值是一个对象，键是文件路径，值是动态导入函数
+// 例如：{ '/src/views/Home.vue': () => import('/src/views/Home.vue'), ... }
+const modules = import.meta.glob('@/views/**/*.vue');
+
 /**
  * 动态添加路由
  * <p>
@@ -230,22 +235,29 @@ const loopRoutes = (routesAll, routes, breadcrumb) => {
  */
 const addRoute = (routesAll) => {
     for (let i = 0; i < routesAll.length; i++) {
-        let route = routesAll[i]
+        let route = routesAll[i];
         // 过滤掉内置的静态路由
         if (route.path === '/forbidden' || route.path === '/welcome') {
-            continue
+            continue;
         }
 
-        // 添加子路由，子路由挂载在`gen`路由下
-        router.addRoute('gen', {
-            path: route.path,
-            // 路由懒加载
-            // @vite-ignore 是vite的注释，用于告诉vite忽略这个路径，不要去解析这个路径，这个路径没错，
-            // 但是不符合vite的解析规则，所以需要忽略掉，不然会报警告
-            component: () => import(/* @vite-ignore */`/src/views${route.component}.vue`)
-        });
+        // 检查 component 是否存在
+        if (!route.component) {
+            console.error(`Component path is missing for route: ${route.path}`);
+            continue;
+        }
+
+        // 检查路由是否已经存在
+        if (!router.hasRoute(route.path)) {
+            // 添加子路由，子路由挂载在`gen`路由下
+            router.addRoute('gen', {
+                path: route.path,
+                // 路由懒加载
+                component: modules[`/src/views${route.component.startsWith('/') ? route.component : `/${route.component}`}.vue`],
+            });
+        }
     }
-}
+};
 
 /**
  * 验证路由权限
