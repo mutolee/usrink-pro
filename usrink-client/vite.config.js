@@ -13,7 +13,7 @@ export default defineConfig({
     resolve: {
         alias: {
             // build的时候，用于定义别名 @，它指向项目的 src 目录
-            '@': fileURLToPath(new URL('./src', import.meta.url))
+            '@': fileURLToPath(new URL('src', import.meta.url))
         }
     },
     build: {
