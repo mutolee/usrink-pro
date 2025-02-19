@@ -14,6 +14,7 @@
                phone,
                sex,
                createTime,
+               salt,
                status
         from sys_user
     </sql>
@@ -60,6 +61,7 @@
         <if test="email != null and email != ''">email,</if>
         <if test="phone != null and phone != ''">phone,</if>
         <if test="sex != null">sex,</if>
+        <if test="salt != null">salt,</if>
         <if test="status != null">status,</if>
         createTime,
         updateTime
@@ -72,6 +74,7 @@
         <if test="email != null and email != ''">#{email},</if>
         <if test="phone != null and phone != ''">#{phone},</if>
         <if test="sex != null">#{sex},</if>
+        <if test="salt != null">#{salt},</if>
         <if test="status != null">#{status},</if>
         now(),
         now()
@@ -109,7 +112,9 @@
     <!-- 更新用户密码 -->
     <update id="updateSysUserPassword" parameterType="ink.usr.common.model.mysql.SysUserModel">
         update sys_user
-        set userPassword = #{userPassword}
+        set
+            userPassword = #{userPassword},
+            salt = #{salt}
         where userId = #{userId}
     </update>
 

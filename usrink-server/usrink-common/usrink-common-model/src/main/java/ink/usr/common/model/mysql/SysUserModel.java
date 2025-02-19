@@ -62,6 +62,11 @@ public class SysUserModel implements Serializable {
     public String createTime;
 
     /**
+     * 盐
+     */
+    public String salt;
+
+    /**
      * 用户状态, 0:正常, -1:禁用
      */
     private Integer status;

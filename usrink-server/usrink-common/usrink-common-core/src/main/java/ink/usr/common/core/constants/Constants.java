@@ -6,10 +6,6 @@ package ink.usr.common.core.constants;
 public class Constants {
 
     /**
-     * 密码盐
-     */
-    public static final String SALT = "usr.ink.salt.xxx";
-    /**
      * 系统用户默认密码
      */
     public static final String DEFAULT_PASSWORD = "123456";

@@ -100,5 +100,20 @@ public class StringUtil {
         return sb.toString();
     }
 
+    /**
+     * 随机生成指定长度的字符串
+     * @param length
+     * @return
+     */
+    public static String randomString(int length) {
+        String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int number = (int) (Math.random() * 62);
+            sb.append(str.charAt(number));
+        }
+        return sb.toString();
+    }
+
 
 }
