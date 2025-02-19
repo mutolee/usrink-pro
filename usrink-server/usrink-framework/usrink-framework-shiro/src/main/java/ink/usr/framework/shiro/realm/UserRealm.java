@@ -52,19 +52,22 @@ public class UserRealm extends AuthorizingRealm {
         if (authenticationToken instanceof UsernamePasswordToken) { // 用户名密码登录
             log.debug("用户名密码登录认证");
             UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-            // 设置Token密码加盐，再进行MD5加密，随后与数据库中的密码进行比对
-            token.setPassword(Md5Util.md5(new String(token.getPassword()) + Constants.SALT).toCharArray());
+
             // 获取用户名
             String userName = token.getUsername();
-
             // 查询用户信息
             ShiroUserInfo shiroUserInfo = shiroService.selectSysUserForLogin(userName);
             if (shiroUserInfo == null) {
                 throw new UnknownAccountException("用户不存在");
             }
 
+            // 设置Token密码加盐，再进行MD5加密，随后与数据库中的密码进行比对
+            token.setPassword(Md5Util.md5(new String(token.getPassword()) + shiroUserInfo.getSalt()).toCharArray());
+
             // 返回SimpleAuthenticationInfo，Shiro会自动验证密码是否正确
             // 原理：SimpleAuthenticationInfo的密码参数，会和authenticationToken的密码进行比对
+            // 第一个参数：用户信息，用于存储到Subject中，方便后续使用，如 SecurityUtils.getSubject()
+            // 第二个参数：用户凭证，用于比对凭证是否正确
             return new SimpleAuthenticationInfo(shiroUserInfo, shiroUserInfo.getUserPassword(), getName());
 
         } else if (authenticationToken instanceof JwtToken) { // JWT登录

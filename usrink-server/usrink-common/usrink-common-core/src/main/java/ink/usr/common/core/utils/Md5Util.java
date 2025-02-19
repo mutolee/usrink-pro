@@ -35,4 +35,11 @@ public class Md5Util {
         }
     }
 
+    public static void main(String[] args) {
+        String password = md5("123456");
+        String salt = StringUtil.randomString(6);
+        System.out.println("salt：" + salt);
+        System.out.println("password：" + md5(password + salt));
+    }
+
 }

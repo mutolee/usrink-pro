@@ -6,6 +6,7 @@ import ink.usr.common.core.constants.Constants;
 import ink.usr.common.core.exception.WarningException;
 import ink.usr.common.core.exception.base.BusinessException;
 import ink.usr.common.core.utils.Md5Util;
+import ink.usr.common.core.utils.StringUtil;
 import ink.usr.common.domain.admin.UpdatePwdForm;
 import ink.usr.common.interfaces.admin.ISysUserService;
 import ink.usr.common.model.mysql.SysRoleModel;
@@ -63,8 +64,11 @@ public class SysUserService implements ISysUserService {
         }
         // 设置用户默认角色
         sysUserModel.setUserRoleId(2L);
+        // 密码盐
+        sysUserModel.setSalt(StringUtil.randomString(6));
+
         // 密码加密
-        sysUserModel.setUserPassword(Md5Util.md5(sysUserModel.getUserPassword() + Constants.SALT));
+        sysUserModel.setUserPassword(Md5Util.md5(sysUserModel.getUserPassword() + sysUserModel.getSalt()));
         return sysUserDao.insertSysUser(Ds.W, sysUserModel);
     }
 
@@ -106,8 +110,10 @@ public class SysUserService implements ISysUserService {
     public int updateSysUserPassword(SysUserModel sysUserModel) {
         // 密码加密
         String password = Md5Util.md5(Constants.DEFAULT_PASSWORD);
+        // 密码盐
+        sysUserModel.setSalt(StringUtil.randomString(6));
         // 密码加盐
-        sysUserModel.setUserPassword(Md5Util.md5(password + Constants.SALT));
+        sysUserModel.setUserPassword(Md5Util.md5(password + sysUserModel.getSalt()));
         return sysUserDao.updateSysUserPassword(Ds.W, sysUserModel);
     }
 
@@ -152,14 +158,16 @@ public class SysUserService implements ISysUserService {
         if (sysUserModel == null) {
             throw new BusinessException("用户不存在！");
         }
-        String oldPwd = Md5Util.md5(updatePwdForm.getOldPwd() + Constants.SALT);
+        String oldPwd = Md5Util.md5(updatePwdForm.getOldPwd() + sysUserModel.getSalt());
         if (!sysUserModel.getUserPassword().equals(oldPwd)) {
             throw new WarningException("原密码错误！");
         }
-        String newPwd = Md5Util.md5(updatePwdForm.getNewPwd() + Constants.SALT);
+        String newSalt = StringUtil.randomString(6);
+        String newPwd = Md5Util.md5(updatePwdForm.getNewPwd() + newSalt);
         int count = sysUserDao.updateSysUserPassword(Ds.W, SysUserModel.builder()
                 .userId(userId)
                 .userPassword(newPwd)
+                .salt(newSalt)
                 .build());
         return count > 0;
     }

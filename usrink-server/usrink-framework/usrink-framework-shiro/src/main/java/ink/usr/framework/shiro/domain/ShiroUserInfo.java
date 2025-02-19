@@ -30,4 +30,9 @@ public class ShiroUserInfo implements Serializable {
      */
     private String userPassword;
 
+    /**
+     * 盐值
+     */
+    private String salt;
+
 }
