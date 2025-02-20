@@ -1,7 +1,10 @@
 package ink.usr.common.domain.admin;
 
 import ink.usr.common.model.mysql.SysLogOperatorModel;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * 操作日志表单

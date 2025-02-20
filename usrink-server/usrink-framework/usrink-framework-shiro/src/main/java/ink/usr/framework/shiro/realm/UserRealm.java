@@ -1,6 +1,5 @@
 package ink.usr.framework.shiro.realm;
 
-import ink.usr.common.core.constants.Constants;
 import ink.usr.common.core.utils.Md5Util;
 import ink.usr.framework.shiro.domain.ShiroRoleInfo;
 import ink.usr.framework.shiro.domain.ShiroUserInfo;
