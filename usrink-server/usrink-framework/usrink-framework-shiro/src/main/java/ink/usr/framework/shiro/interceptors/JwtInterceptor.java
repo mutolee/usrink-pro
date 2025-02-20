@@ -22,7 +22,7 @@ public class JwtInterceptor implements HandlerInterceptor {
      * 拦截器的核心方法，用于验证JWT Token
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String requestURI = request.getRequestURI();
         log.debug("Jwt拦截请求: {}", requestURI);
 
