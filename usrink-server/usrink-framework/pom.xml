@@ -19,6 +19,7 @@
         <module>usrink-framework-mongo</module>
         <module>usrink-framework-redis</module>
         <module>usrink-framework-shiro</module>
+        <module>usrink-framework-jwt</module>
     </modules>
 
 

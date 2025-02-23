@@ -1,11 +1,11 @@
 package ink.usr.framework.shiro.realm;
 
+import ink.usr.common.core.utils.JwtUtil;
 import ink.usr.common.core.utils.Md5Util;
 import ink.usr.framework.shiro.domain.ShiroRoleInfo;
 import ink.usr.framework.shiro.domain.ShiroUserInfo;
 import ink.usr.framework.shiro.interfaces.IShiroService;
-import ink.usr.framework.shiro.token.JwtToken;
-import ink.usr.framework.shiro.utils.JwtUtil;
+import ink.usr.framework.shiro.token.AuthenticationJwtToken;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -34,12 +34,12 @@ public class UserRealm extends AuthorizingRealm {
 
     /**
      * 重写supports，让Realm支持自定义的Token类型<br>
-     * 这里支持JwtToken和UsernamePasswordToken
+     * 这里支持Token和UsernamePasswordToken
      */
     @Override
     public boolean supports(AuthenticationToken token) {
         log.debug("Shiro支持的Token类型：{}", token.getClass().getName());
-        return token instanceof JwtToken || token instanceof UsernamePasswordToken;
+        return token instanceof AuthenticationJwtToken || token instanceof UsernamePasswordToken;
     }
 
     /**
@@ -69,9 +69,9 @@ public class UserRealm extends AuthorizingRealm {
             // 第二个参数：用户凭证，用于比对凭证是否正确
             return new SimpleAuthenticationInfo(shiroUserInfo, shiroUserInfo.getUserPassword(), getName());
 
-        } else if (authenticationToken instanceof JwtToken) { // JWT登录
-            log.debug("Jwt Token登录认证");
-            JwtToken token = (JwtToken) authenticationToken;
+        } else if (authenticationToken instanceof AuthenticationJwtToken) { // Token登录
+            log.debug("Token登录认证");
+            AuthenticationJwtToken token = (AuthenticationJwtToken) authenticationToken;
             return new SimpleAuthenticationInfo(token, token.getCredentials(), getName());
         }
 
@@ -86,8 +86,8 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        // 获取用户凭证，即JWT Token
-        JwtToken primaryPrincipal = (JwtToken) principalCollection.getPrimaryPrincipal();
+        // 获取用户凭证，即Token
+        AuthenticationJwtToken primaryPrincipal = (AuthenticationJwtToken) principalCollection.getPrimaryPrincipal();
         long userId = JwtUtil.getUserId(primaryPrincipal.getToken());
         log.debug("用户（{}）权限验证", userId);
 

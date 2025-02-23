@@ -1,7 +1,7 @@
-package ink.usr.framework.shiro.config;
+package ink.usr.framework.jwt.config;
 
-import ink.usr.framework.shiro.interceptors.JwtInterceptor;
-import ink.usr.framework.shiro.utils.JwtUtil;
+import ink.usr.common.core.utils.JwtUtil;
+import ink.usr.framework.jwt.interceptors.JwtInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
