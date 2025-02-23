@@ -1,7 +1,8 @@
 package ink.usr.framework.shiro.utils;
 
+import ink.usr.common.core.utils.JwtUtil;
 import ink.usr.framework.shiro.domain.ShiroUserInfo;
-import ink.usr.framework.shiro.token.JwtToken;
+import ink.usr.framework.shiro.token.AuthenticationJwtToken;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthenticatedException;
@@ -24,8 +25,8 @@ public class ShiroUtil {
         }
 
         // 如果是JwtToken，从token中获取用户信息
-        if (principal instanceof JwtToken) {
-            JwtToken jwtToken = (JwtToken) principal;
+        if (principal instanceof AuthenticationJwtToken) {
+            AuthenticationJwtToken jwtToken = (AuthenticationJwtToken) principal;
             String token = jwtToken.getToken();
             return ShiroUserInfo.builder()
                     .userId(JwtUtil.getUserId(token))

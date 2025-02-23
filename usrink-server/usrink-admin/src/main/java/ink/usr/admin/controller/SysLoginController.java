@@ -4,6 +4,7 @@ import ink.usr.admin.service.ShiroService;
 import ink.usr.common.core.annotation.Log;
 import ink.usr.common.core.domain.Dict;
 import ink.usr.common.core.domain.Res;
+import ink.usr.common.core.utils.JwtUtil;
 import ink.usr.common.domain.admin.SysUserMenus;
 import ink.usr.common.interfaces.admin.ISysLoginService;
 import ink.usr.common.interfaces.admin.ISysRoleService;
@@ -12,7 +13,6 @@ import ink.usr.common.model.mysql.SysRoleModel;
 import ink.usr.common.model.mysql.SysUserModel;
 import ink.usr.framework.shiro.domain.ShiroRoleInfo;
 import ink.usr.framework.shiro.domain.ShiroUserInfo;
-import ink.usr.framework.shiro.utils.JwtUtil;
 import ink.usr.framework.shiro.utils.ShiroUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -46,8 +46,6 @@ public class SysLoginController {
         UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
 
         // Shiro进行身份认证
-        // 用户名不存在将抛出Shiro的UnknownAccountException异常
-        // 密码错误将抛出Shiro的IncorrectCredentialsException异常
         SecurityUtils.getSubject().login(token);
 
         // 用户认证凭证信息

@@ -1,4 +1,4 @@
-package ink.usr.framework.shiro.utils;
+package ink.usr.common.core.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * JWT工具类，提供JWT的生成、解析、验证等功能
  */
-public class JwtUtil {
+public class JwtUtil{
 
     // 秘钥，默认为 ink-usr-jwt-secret-123456，可通过 init 方法修改
     private static String SECRET = "ink-usr-jwt-secret-123456";
@@ -44,18 +44,6 @@ public class JwtUtil {
                 .withClaim("userPassword", userPassword)
                 .withExpiresAt(expiryDate)
                 .sign(Algorithm.HMAC256(SECRET));
-    }
-
-    /**
-     * 解析JWT Token
-     *
-     * @param token JWT Token
-     * @return 解析后的JWT对象
-     */
-    public static DecodedJWT parseToken(String token) {
-        return JWT.require(Algorithm.HMAC256(SECRET))
-                .build()
-                .verify(token);
     }
 
     /**
@@ -113,6 +101,18 @@ public class JwtUtil {
      */
     public static String getPassword(String token) {
         return parseToken(token).getClaim("password").asString();
+    }
+
+    /**
+     * 解析JWT Token
+     *
+     * @param token JWT Token
+     * @return 解析后的JWT对象
+     */
+    private static DecodedJWT parseToken(String token) {
+        return JWT.require(Algorithm.HMAC256(SECRET))
+                .build()
+                .verify(token);
     }
 
 }

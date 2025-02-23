@@ -1,10 +1,8 @@
-package ink.usr.framework.shiro.interceptors;
+package ink.usr.framework.jwt.interceptors;
 
-import ink.usr.framework.shiro.token.JwtToken;
-import ink.usr.framework.shiro.utils.JwtUtil;
+import ink.usr.common.core.exception.UnauthenticatedException;
+import ink.usr.common.core.utils.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authz.UnauthenticatedException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -42,8 +40,8 @@ public class JwtInterceptor implements HandlerInterceptor {
             throw new UnauthenticatedException("JWT Token已过期");
         }
 
-        // 将JWT Token设置到Shiro的Subject中进行认证
-        SecurityUtils.getSubject().login(new JwtToken(jwtToken));
+        // 保存JWT Token到HttpServletRequest中，交给后续拦截器使用
+        request.setAttribute("jwtToken", jwtToken);
 
         return true;
     }

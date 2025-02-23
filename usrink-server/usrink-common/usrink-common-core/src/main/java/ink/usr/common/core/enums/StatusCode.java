@@ -24,7 +24,7 @@ public enum StatusCode {
     ERROR(300),
 
     /**
-     * 未登录，未认证
+     * 未登录，认证异常
      */
     UNAUTHORIZED(301),
 

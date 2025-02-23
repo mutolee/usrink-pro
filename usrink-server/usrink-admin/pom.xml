@@ -49,6 +49,12 @@
             <artifactId>usrink-framework-mysql</artifactId>
         </dependency>
 
+        <!-- JWT模块 -->
+        <dependency>
+            <groupId>ink.usr</groupId>
+            <artifactId>usrink-framework-jwt</artifactId>
+        </dependency>
+
         <!-- Shiro模块 -->
         <dependency>
             <groupId>ink.usr</groupId>

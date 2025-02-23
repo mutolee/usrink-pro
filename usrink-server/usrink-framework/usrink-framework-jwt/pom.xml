@@ -9,8 +9,8 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>usrink-framework-shiro</artifactId>
-    <description>Shiro模块，提供Shiro的配置，权限控制，根据需要导入</description>
+    <artifactId>usrink-framework-jwt</artifactId>
+    <description>JWT模块，提供Jwt的配置，JWT鉴权，根据需要导入</description>
 
 
     <dependencies>
@@ -21,22 +21,10 @@
             <artifactId>usrink-common-core</artifactId>
         </dependency>
 
-        <!-- SpringBoot Web容器 -->
+        <!-- JWT (JSON Web Token) -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- Shiro使用Spring框架 -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-        </dependency>
-
-        <!-- Spring 容器 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
         </dependency>
 
     </dependencies>

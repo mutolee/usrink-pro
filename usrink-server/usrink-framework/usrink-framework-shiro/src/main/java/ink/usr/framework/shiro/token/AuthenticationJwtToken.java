@@ -4,27 +4,28 @@ import lombok.Getter;
 import org.apache.shiro.authc.AuthenticationToken;
 
 /**
- * JwtToken，用于Shiro的认证
+ * 用于Shiro的认证的Token；<br />
+ * 这里保存的令牌字符串为JWT Token字符串，也可以是其它类型的Token，如自定义的Token。
  */
 @Getter
-public class JwtToken implements AuthenticationToken {
+public class AuthenticationJwtToken implements AuthenticationToken {
 
-    // JWT令牌
+    // 令牌字符串
     private final String token;
 
     /**
-     * 构造 JwtToken
+     * 构造认证令牌
      *
-     * @param token JWT令牌
+     * @param token 令牌字符串
      */
-    public JwtToken(String token) {
+    public AuthenticationJwtToken(String token) {
         this.token = token;
     }
 
     /**
      * 获取身份
      *
-     * @return 身份，即JWT令牌
+     * @return 身份，即令牌字符串
      */
     @Override
     public Object getPrincipal() {
@@ -34,7 +35,7 @@ public class JwtToken implements AuthenticationToken {
     /**
      * 获取凭证
      *
-     * @return 凭证，即JWT令牌
+     * @return 凭证，即令牌字符串
      */
     @Override
     public Object getCredentials() {

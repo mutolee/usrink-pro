@@ -17,6 +17,7 @@ UsrInk-Pro 是我为了不用每次有了新项目，再搞重复事情，如系
     ├──── usrink-common-interface  业务层接口模块，独立运行的模块的业务接口在此模块定义
     ├──── usrink-common-model      提供数据库表与对象映射，对象属性与数据库字段一一对应
     ├── usrink-framework
+    ├──── usrink-framework-jwt     JWT模块，提供Jwt的配置，JWT鉴权，根据需要导入
     ├──── usrink-framework-mong    Mongo模块，提供Mongo的配置，操作类、多数据源等，根据需要导入
     ├──── usrink-framework-redis   Redis模块，提供Redis的配置，操作类、多数据源等，根据需要导入
     ├──── usrink-framework-mysql   Mysql模块，提供Mysql的配置，多数据源配置，根据需要导入

@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ShiroExceptionHandler {
 
     /**
-     * Shiro未授权异常，请求没有携带token，或token过期，或token无效抛出的异常
+     * Shiro认证异常
      */
     @ExceptionHandler(UnauthenticatedException.class)
     public Res handleUnauthenticatedException(UnauthenticatedException e) {
-        return Res.me().setCode(StatusCode.UNAUTHORIZED).setMsg("凭证为空或凭证过期，请重新登录！");
+        return Res.me().setCode(StatusCode.UNAUTHORIZED).setMsg("认证失败，请重新登录！");
     }
 
     /**
