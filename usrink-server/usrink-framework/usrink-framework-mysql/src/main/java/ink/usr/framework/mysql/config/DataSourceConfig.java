@@ -36,7 +36,7 @@ import java.util.stream.Stream;
  */
 @Slf4j
 @Configuration
-@MapperScan(basePackages = {"ink.usr.*.mapper", "ink.usr.*.mapper.base"}, sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = {"ink.usr.*.mapper"}, sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfig {
 
     /**
