@@ -20,8 +20,10 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * 数据源配置<br>
@@ -34,7 +36,7 @@ import java.util.Map;
  */
 @Slf4j
 @Configuration
-@MapperScan(basePackages = "ink.usr.*.mapper", sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = {"ink.usr.*.mapper", "ink.usr.*.mapper.base"}, sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfig {
 
     /**
@@ -101,8 +103,10 @@ public class DataSourceConfig {
         try {
             ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
             // 业务模块Mapping配置文件
-            Resource[] resourcesServiceModel = resolver.getResources("classpath:sqlconf/*Mapping.xml");
-            sqlSessionFactoryBean.setMapperLocations(resourcesServiceModel);
+            Resource[] resourcesBaseXml = resolver.getResources("classpath:sqlconf/base/*Mapping.xml");
+            Resource[] resourcesXml = resolver.getResources("classpath:sqlconf/*Mapping.xml");
+            Resource[] allXml = Stream.concat(Arrays.stream(resourcesBaseXml), Arrays.stream(resourcesXml)).toArray(Resource[]::new);
+            sqlSessionFactoryBean.setMapperLocations(allXml);
             log.debug("配置 sqlSessionFactory 完成.");
             return sqlSessionFactoryBean.getObject();
         } catch (Exception e) {
