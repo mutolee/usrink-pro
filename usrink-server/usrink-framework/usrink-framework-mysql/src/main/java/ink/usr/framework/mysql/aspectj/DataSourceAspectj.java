@@ -23,7 +23,8 @@ public class DataSourceAspectj {
     /**
      * 定义有一个切入点，范围为Dao层下的类的方法
      */
-    @Pointcut("execution(public * ink.usr.*.dao.*Dao.*(..))")
+    @Pointcut("execution(public * ink.usr.*.dao.*Dao.*(..)) || " +
+              "execution(public * ink.usr.*.dao.base.*Dao.*(..))")
     public void daoPoint() {
     }
 
@@ -33,7 +34,7 @@ public class DataSourceAspectj {
      */
     @Around("daoPoint()")
     public Object doAround(ProceedingJoinPoint point) throws Throwable {
-        // 判断是否是第一次进来,用于处理嵌套调用（一个Dao中的方法调用另外一个Dao的方法叫做嵌套）
+        // 判断是否是第一次进来,用于处理嵌套调用（一个Dao中的方法调用另外一个Dao的方法叫做嵌套，注意：是另一个Dao）
         // 怎么判断是否是第一次进来呢，判断DynamicDataSourceContextHolder.getDataSourceKey()是否为null，如果不为null,就表示不是第一次进来
         boolean isFirst = false;
         try {
@@ -66,7 +67,7 @@ public class DataSourceAspectj {
             return point.proceed();
         } finally {
             if (isFirst) {
-                // 每次Dao层执行完毕，非嵌套(一个Dao中的方法调用另外一个Dao的方法叫做嵌套)情况下，清除该线程连接的主从标识
+                // 每次Dao层执行完毕，非嵌套(一个Dao中的方法调用另外一个Dao的方法叫做嵌套，注意：是另一个Dao)情况下，清除该线程连接的主从标识
                 // 如果为嵌套调用，这里isFirst就为false了，不会执行下面清除方法
                 DynamicDataSourceContextHolder.clearDataSourceKey();
                 log.debug("清除当前线程数据源标识");
