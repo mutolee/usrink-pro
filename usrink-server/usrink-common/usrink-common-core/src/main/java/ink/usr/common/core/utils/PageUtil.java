@@ -22,4 +22,19 @@ public class PageUtil {
         return PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
     }
 
+    /**
+     * 开始分页
+     *
+     * @param count    是否进行count查询
+     */
+    public static <E> Page<E> startPage(boolean count) {
+        // 获取分页参数
+        String pageNum = ServletUtil.getParameter(Constants.PAGE_NUM);
+        // 获取分页大小
+        String pageSize = ServletUtil.getParameter(Constants.PAGE_SIZE);
+
+        return PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize), count);
+    }
+
+
 }
