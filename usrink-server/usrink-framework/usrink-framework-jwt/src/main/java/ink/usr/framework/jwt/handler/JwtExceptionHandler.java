@@ -1,7 +1,7 @@
 package ink.usr.framework.jwt.handler;
 
-import ink.usr.common.core.domain.Res;
-import ink.usr.common.core.enums.StatusCode;
+import ink.usr.common.core.entity.Res;
+import ink.usr.common.core.entity.enums.StatusCode;
 import ink.usr.common.core.exception.UnauthenticatedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;

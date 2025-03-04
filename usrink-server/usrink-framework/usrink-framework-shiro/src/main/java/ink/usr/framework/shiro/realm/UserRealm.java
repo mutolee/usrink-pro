@@ -2,9 +2,9 @@ package ink.usr.framework.shiro.realm;
 
 import ink.usr.common.core.utils.JwtUtil;
 import ink.usr.common.core.utils.Md5Util;
-import ink.usr.framework.shiro.domain.ShiroRoleInfo;
-import ink.usr.framework.shiro.domain.ShiroUserInfo;
-import ink.usr.framework.shiro.interfaces.IShiroService;
+import ink.usr.framework.shiro.entity.ShiroRoleInfo;
+import ink.usr.framework.shiro.entity.ShiroUserInfo;
+import ink.usr.framework.shiro.entity.interfaces.IShiroService;
 import ink.usr.framework.shiro.token.AuthenticationJwtToken;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;

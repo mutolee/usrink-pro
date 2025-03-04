@@ -1,6 +1,6 @@
 package ink.usr.framework.mysql;
 
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.framework.mysql.entity.enums.Ds;
 
 /**
  * DynamicDataSourceContextHolder 是一个管理动态选择数据源键的实用工具类，

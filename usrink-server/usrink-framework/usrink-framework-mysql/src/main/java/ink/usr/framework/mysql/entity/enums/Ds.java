@@ -1,4 +1,4 @@
-package ink.usr.framework.mysql.enums;
+package ink.usr.framework.mysql.entity.enums;
 
 public enum Ds {
 

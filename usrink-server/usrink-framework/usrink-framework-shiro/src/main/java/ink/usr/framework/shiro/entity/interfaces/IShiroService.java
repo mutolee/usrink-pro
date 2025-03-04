@@ -1,7 +1,7 @@
-package ink.usr.framework.shiro.interfaces;
+package ink.usr.framework.shiro.entity.interfaces;
 
-import ink.usr.framework.shiro.domain.ShiroRoleInfo;
-import ink.usr.framework.shiro.domain.ShiroUserInfo;
+import ink.usr.framework.shiro.entity.ShiroRoleInfo;
+import ink.usr.framework.shiro.entity.ShiroUserInfo;
 
 /**
  * Shiro服务接口，用于获取用户、角色、权限信息，依赖Shiro的模块需要实现该接口

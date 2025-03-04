@@ -1,4 +1,4 @@
-package ink.usr.framework.shiro.domain;
+package ink.usr.framework.shiro.entity;
 
 import lombok.*;
 
