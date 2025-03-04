@@ -1,16 +1,17 @@
 package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysMenuDao;
-import ink.usr.common.interfaces.admin.ISysMenuService;
-import ink.usr.common.model.mysql.SysMenuModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.admin.service.base.SysMenuBaseService;
+import ink.usr.common.entity.admin.interfaces.ISysMenuService;
+import ink.usr.common.entity.model.mysql.SysMenuModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service(value = "sysMenuService")
-public class SysMenuService implements ISysMenuService {
+public class SysMenuService extends SysMenuBaseService implements ISysMenuService {
 
     @Autowired
     private SysMenuDao sysMenuDao;

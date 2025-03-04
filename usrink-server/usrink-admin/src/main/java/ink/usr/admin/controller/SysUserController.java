@@ -4,16 +4,16 @@ import com.github.pagehelper.Page;
 import ink.usr.admin.service.ShiroService;
 import ink.usr.common.core.annotation.Log;
 import ink.usr.common.core.constants.Constants;
-import ink.usr.common.core.domain.Dict;
-import ink.usr.common.core.domain.Res;
+import ink.usr.common.core.entity.Dict;
+import ink.usr.common.core.entity.Res;
 import ink.usr.common.core.exception.base.BusinessException;
 import ink.usr.common.core.utils.*;
-import ink.usr.common.domain.admin.SysUserInfo;
-import ink.usr.common.domain.admin.UpdatePwdForm;
-import ink.usr.common.interfaces.admin.ISysRoleService;
-import ink.usr.common.interfaces.admin.ISysUserService;
-import ink.usr.common.model.mysql.SysRoleModel;
-import ink.usr.common.model.mysql.SysUserModel;
+import ink.usr.common.entity.admin.form.UpdatePwdForm;
+import ink.usr.common.entity.admin.interfaces.ISysRoleService;
+import ink.usr.common.entity.admin.interfaces.ISysUserService;
+import ink.usr.common.entity.admin.vo.SysUserInfo;
+import ink.usr.common.entity.model.mysql.SysRoleModel;
+import ink.usr.common.entity.model.mysql.SysUserModel;
 import ink.usr.framework.shiro.utils.ShiroUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -158,8 +158,8 @@ public class SysUserController {
     @Log("个人中心，修改头像")
     @RequestMapping(value = "/updateMyAvatar", method = RequestMethod.POST)
     @RequiresPermissions("user:profile:updateAvatar")
-    public Res updateMyAvatar(String base64Image){
-        if(!StringUtil.isEmpty(base64Image)){
+    public Res updateMyAvatar(String base64Image) {
+        if (!StringUtil.isEmpty(base64Image)) {
             // 限制头像大小，不能超过100KB
             if (base64Image.length() > 102400) {
                 return Res.error("头像大小不能超过100KB");

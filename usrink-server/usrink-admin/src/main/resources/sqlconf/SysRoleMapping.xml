@@ -14,14 +14,15 @@
     </sql>
 
     <!-- 根据角色ID，查询角色信息 -->
-    <select id="selectRoleById" parameterType="java.lang.Long" resultType="ink.usr.common.model.mysql.SysRoleModel">
+    <select id="selectRoleById" parameterType="java.lang.Long"
+            resultType="ink.usr.common.entity.model.mysql.SysRoleModel">
         <include refid="selectSysRoleSql"/>
         where roleId = #{roleId}
     </select>
 
     <!-- 查询角色列表 -->
-    <select id="selectSysRoleList" parameterType="ink.usr.common.model.mysql.SysRoleModel"
-            resultType="ink.usr.common.model.mysql.SysRoleModel">
+    <select id="selectSysRoleList" parameterType="ink.usr.common.entity.model.mysql.SysRoleModel"
+            resultType="ink.usr.common.entity.model.mysql.SysRoleModel">
         <include refid="selectSysRoleSql"/>
         <where>
             <if test="roleName != null and roleName != ''">and roleName like concat('%', #{roleName}, '%')</if>
@@ -33,7 +34,7 @@
     </select>
 
     <!-- 添加角色 -->
-    <insert id="insertSysRole" parameterType="ink.usr.common.model.mysql.SysRoleModel" useGeneratedKeys="true"
+    <insert id="insertSysRole" parameterType="ink.usr.common.entity.model.mysql.SysRoleModel" useGeneratedKeys="true"
             keyProperty="roleId">
         insert into sys_role(
         <if test="roleName != null and roleName != ''">roleName,</if>
@@ -55,7 +56,7 @@
     </insert>
 
     <!-- 修改角色 -->
-    <update id="updateSysRole" parameterType="ink.usr.common.model.mysql.SysRoleModel">
+    <update id="updateSysRole" parameterType="ink.usr.common.entity.model.mysql.SysRoleModel">
         update sys_role
         <set>
             <if test="roleName != null and roleName != ''">roleName = #{roleName},</if>
@@ -67,7 +68,7 @@
     </update>
 
     <!-- 更加角色的权限 -->
-    <update id="updateSysRolePerm" parameterType="ink.usr.common.model.mysql.SysRoleModel">
+    <update id="updateSysRolePerm" parameterType="ink.usr.common.entity.model.mysql.SysRoleModel">
         update sys_role
         <set>
             roleMenuIds = #{roleMenuIds},

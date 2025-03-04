@@ -1,7 +1,7 @@
 package ink.usr.admin.mapper;
 
-import ink.usr.common.domain.admin.SysLogLoginForm;
-import ink.usr.common.model.mysql.SysLogLoginModel;
+import ink.usr.common.entity.admin.form.SysLogLoginForm;
+import ink.usr.common.entity.model.mysql.SysLogLoginModel;
 
 import java.util.List;
 

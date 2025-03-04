@@ -2,16 +2,17 @@ package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysRoleDao;
 import ink.usr.admin.dao.SysUserDao;
+import ink.usr.admin.service.base.SysUserBaseService;
 import ink.usr.common.core.constants.Constants;
 import ink.usr.common.core.exception.WarningException;
 import ink.usr.common.core.exception.base.BusinessException;
 import ink.usr.common.core.utils.Md5Util;
 import ink.usr.common.core.utils.StringUtil;
-import ink.usr.common.domain.admin.UpdatePwdForm;
-import ink.usr.common.interfaces.admin.ISysUserService;
-import ink.usr.common.model.mysql.SysRoleModel;
-import ink.usr.common.model.mysql.SysUserModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.common.entity.admin.form.UpdatePwdForm;
+import ink.usr.common.entity.admin.interfaces.ISysUserService;
+import ink.usr.common.entity.model.mysql.SysRoleModel;
+import ink.usr.common.entity.model.mysql.SysUserModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ import java.util.List;
 
 @Slf4j
 @Service(value = "sysUserService")
-public class SysUserService implements ISysUserService {
+public class SysUserService extends SysUserBaseService implements ISysUserService {
 
     @Autowired
     private SysUserDao sysUserDao;

@@ -3,10 +3,10 @@ package ink.usr.admin.aspectj;
 import ink.usr.admin.service.ShiroService;
 import ink.usr.common.core.annotation.Log;
 import ink.usr.common.core.utils.*;
-import ink.usr.common.interfaces.admin.ISysLogOperatorService;
-import ink.usr.common.model.mysql.SysLogOperatorModel;
-import ink.usr.framework.shiro.domain.ShiroRoleInfo;
-import ink.usr.framework.shiro.domain.ShiroUserInfo;
+import ink.usr.common.entity.admin.interfaces.ISysLogOperatorService;
+import ink.usr.common.entity.model.mysql.SysLogOperatorModel;
+import ink.usr.framework.shiro.entity.ShiroRoleInfo;
+import ink.usr.framework.shiro.entity.ShiroUserInfo;
 import ink.usr.framework.shiro.utils.ShiroUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -130,7 +130,7 @@ public class SysOperatorAspectj {
             Log annotation = methodSignature.getMethod().getAnnotation(Log.class);
             if (annotation != null) {
                 sysLogOperatorModel.setOperatorDesc(annotation.value());
-            }else{
+            } else {
                 sysLogOperatorModel.setOperatorDesc("未知操作");
             }
         }

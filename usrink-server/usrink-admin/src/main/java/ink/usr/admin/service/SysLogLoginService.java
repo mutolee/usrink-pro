@@ -1,17 +1,18 @@
 package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysLogLoginDao;
-import ink.usr.common.domain.admin.SysLogLoginForm;
-import ink.usr.common.interfaces.admin.ISysLogLoginService;
-import ink.usr.common.model.mysql.SysLogLoginModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.admin.service.base.SysLogLoginBaseService;
+import ink.usr.common.entity.admin.form.SysLogLoginForm;
+import ink.usr.common.entity.admin.interfaces.ISysLogLoginService;
+import ink.usr.common.entity.model.mysql.SysLogLoginModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service(value = "sysLogLoginService")
-public class SysLogLoginService implements ISysLogLoginService {
+public class SysLogLoginService extends SysLogLoginBaseService implements ISysLogLoginService {
 
     @Autowired
     private SysLogLoginDao sysLogLoginDao;

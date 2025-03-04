@@ -36,8 +36,8 @@
     </sql>
 
     <!-- 查询登录日志列表 -->
-    <select id="selectSysLogLoginList" parameterType="ink.usr.common.domain.admin.SysLogLoginForm"
-            resultType="ink.usr.common.model.mysql.SysLogLoginModel">
+    <select id="selectSysLogLoginList" parameterType="ink.usr.common.entity.admin.form.SysLogLoginForm"
+            resultType="ink.usr.common.entity.model.mysql.SysLogLoginModel">
         <include refid="selectLogLoginListSql"/>
         <where>
             <if test="userName != null and userName != ''">and userName like concat('%', #{userName}, '%')</if>
@@ -51,13 +51,14 @@
 
     <!-- 查询登录日志详情 -->
     <select id="selectSysLogLoginInfo" parameterType="java.lang.Long"
-            resultType="ink.usr.common.model.mysql.SysLogLoginModel">
+            resultType="ink.usr.common.entity.model.mysql.SysLogLoginModel">
         <include refid="selectLogLoginInfoSql"/>
         where logId = #{logId}
     </select>
 
     <!-- 添加登录日志 -->
-    <insert id="insertSysLogLogin" parameterType="ink.usr.common.model.mysql.SysLogLoginModel" useGeneratedKeys="true"
+    <insert id="insertSysLogLogin" parameterType="ink.usr.common.entity.model.mysql.SysLogLoginModel"
+            useGeneratedKeys="true"
             keyProperty="logId">
         insert into sys_log_login(
         <if test="userName != null and userName != ''">userName,</if>
@@ -96,7 +97,7 @@
     </delete>
 
     <!-- 更加时间删除登录日志 -->
-    <delete id="deleteSysLogLoginByTime" parameterType="ink.usr.common.domain.admin.SysLogLoginForm">
+    <delete id="deleteSysLogLoginByTime" parameterType="ink.usr.common.entity.admin.form.SysLogLoginForm">
         delete from sys_log_login where logId > 0
         <if test="startTime != null and startTime != ''">and createTime &gt;= #{startTime}</if>
         <if test="endTime != null and endTime != ''">and createTime &lt;= #{endTime}</if>

@@ -2,10 +2,10 @@ package ink.usr.admin.controller;
 
 import ink.usr.admin.service.ShiroService;
 import ink.usr.common.core.annotation.Log;
-import ink.usr.common.core.domain.Dict;
-import ink.usr.common.core.domain.Res;
-import ink.usr.common.interfaces.admin.ISysMenuService;
-import ink.usr.common.model.mysql.SysMenuModel;
+import ink.usr.common.core.entity.Dict;
+import ink.usr.common.core.entity.Res;
+import ink.usr.common.entity.admin.interfaces.ISysMenuService;
+import ink.usr.common.entity.model.mysql.SysMenuModel;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

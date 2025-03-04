@@ -25,22 +25,10 @@
             <artifactId>usrink-common-core</artifactId>
         </dependency>
 
-        <!-- 依赖业务接口模块 -->
+        <!-- Common-entity模块 -->
         <dependency>
             <groupId>ink.usr</groupId>
-            <artifactId>usrink-common-interface</artifactId>
-        </dependency>
-
-        <!-- 数据库模型模块 -->
-        <dependency>
-            <groupId>ink.usr</groupId>
-            <artifactId>usrink-common-model</artifactId>
-        </dependency>
-
-        <!-- Common-domain模块 -->
-        <dependency>
-            <groupId>ink.usr</groupId>
-            <artifactId>usrink-common-domain</artifactId>
+            <artifactId>usrink-common-entity</artifactId>
         </dependency>
 
         <!-- Mysql数据库模块 -->

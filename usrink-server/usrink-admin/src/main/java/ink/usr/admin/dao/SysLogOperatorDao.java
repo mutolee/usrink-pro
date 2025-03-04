@@ -1,16 +1,17 @@
 package ink.usr.admin.dao;
 
+import ink.usr.admin.dao.base.SysLogOperatorBaseDao;
 import ink.usr.admin.mapper.SysLogOperatorMapper;
-import ink.usr.common.domain.admin.SysLogOperatorForm;
-import ink.usr.common.model.mysql.SysLogOperatorModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.common.entity.admin.form.SysLogOperatorForm;
+import ink.usr.common.entity.model.mysql.SysLogOperatorModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository(value = "sysLogOperatorDao")
-public class SysLogOperatorDao {
+public class SysLogOperatorDao extends SysLogOperatorBaseDao {
 
     @Autowired
     private SysLogOperatorMapper sysLogOperatorMapper;

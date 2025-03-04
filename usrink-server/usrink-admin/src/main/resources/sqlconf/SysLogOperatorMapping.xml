@@ -41,8 +41,8 @@
     </sql>
 
     <!-- 查询操作日志列表 -->
-    <select id="selectSysLogOperatorList" parameterType="ink.usr.common.domain.admin.SysLogOperatorForm"
-            resultType="ink.usr.common.model.mysql.SysLogOperatorModel">
+    <select id="selectSysLogOperatorList" parameterType="ink.usr.common.entity.admin.form.SysLogOperatorForm"
+            resultType="ink.usr.common.entity.model.mysql.SysLogOperatorModel">
         <include refid="selectLogOperatorListSql"/>
         <where>
             <if test="userName != null and userName != ''">and userName like concat('%', #{userName}, '%')</if>
@@ -57,13 +57,13 @@
 
     <!-- 查询操作日志详情 -->
     <select id="selectSysLogOperatorInfo" parameterType="java.lang.Long"
-            resultType="ink.usr.common.model.mysql.SysLogOperatorModel">
+            resultType="ink.usr.common.entity.model.mysql.SysLogOperatorModel">
         <include refid="selectLogOperatorInfoSql"/>
         where logId = #{logId}
     </select>
 
     <!-- 添加操作日志 -->
-    <insert id="insertSysLogOperator" parameterType="ink.usr.common.model.mysql.SysLogOperatorModel"
+    <insert id="insertSysLogOperator" parameterType="ink.usr.common.entity.model.mysql.SysLogOperatorModel"
             useGeneratedKeys="true" keyProperty="logId">
         insert into sys_log_operator(
         <if test="userName != null and userName != ''">userName,</if>
@@ -108,7 +108,7 @@
     </delete>
 
     <!-- 更加时间删除操作日志 -->
-    <delete id="deleteSysLogOperatorByTime" parameterType="ink.usr.common.domain.admin.SysLogOperatorForm">
+    <delete id="deleteSysLogOperatorByTime" parameterType="ink.usr.common.entity.admin.form.SysLogOperatorForm">
         delete from sys_log_operator where logId > 0
         <if test="startTime != null and startTime != ''">and createTime &gt;= #{startTime}</if>
         <if test="endTime != null and endTime != ''">and createTime &lt;= #{endTime}</if>

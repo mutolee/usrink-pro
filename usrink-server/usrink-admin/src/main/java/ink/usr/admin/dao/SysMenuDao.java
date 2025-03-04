@@ -1,15 +1,16 @@
 package ink.usr.admin.dao;
 
+import ink.usr.admin.dao.base.SysMenuBaseDao;
 import ink.usr.admin.mapper.SysMenuMapper;
-import ink.usr.common.model.mysql.SysMenuModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.common.entity.model.mysql.SysMenuModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository(value = "sysMenuDao")
-public class SysMenuDao {
+public class SysMenuDao extends SysMenuBaseDao {
 
     @Autowired
     private SysMenuMapper sysMenuMapper;
