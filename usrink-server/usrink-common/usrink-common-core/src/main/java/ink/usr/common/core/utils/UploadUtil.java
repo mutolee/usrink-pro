@@ -1,4 +1,5 @@
 package ink.usr.common.core.utils;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class UploadUtil {
      * 将Base64字符串解码并保存为图片文件
      *
      * @param base64Image Base64字符串
-     * @param uploadDir 上传目录
+     * @param uploadDir   上传目录
      */
     public static String uploadBase64Image(String base64Image, String uploadDir, String fileName) throws IOException {
         // 创建上传目录
@@ -24,7 +25,7 @@ public class UploadUtil {
         }
 
         // 构造文件名
-        if(StringUtil.isEmpty(fileName)){
+        if (StringUtil.isEmpty(fileName)) {
             // 获取文件名后缀
             String extension = getExtensionFromBase64(base64Image);
             fileName = System.currentTimeMillis() + "." + extension;

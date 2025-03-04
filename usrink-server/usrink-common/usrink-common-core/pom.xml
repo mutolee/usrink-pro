@@ -13,16 +13,10 @@
     <description>公共模块，包含通用的工具类、常量、异常类等</description>
 
     <dependencies>
-        <!-- 依赖common-domain模块 -->
+        <!-- 依赖common-entity模块 -->
         <dependency>
             <groupId>ink.usr</groupId>
-            <artifactId>usrink-common-domain</artifactId>
-        </dependency>
-
-        <!-- 依赖common-model模块 -->
-        <dependency>
-            <groupId>ink.usr</groupId>
-            <artifactId>usrink-common-model</artifactId>
+            <artifactId>usrink-common-entity</artifactId>
         </dependency>
 
         <!-- 获取系统信息 -->

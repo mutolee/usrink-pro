@@ -1,7 +1,7 @@
 package ink.usr.common.core.handler;
 
-import ink.usr.common.core.domain.Res;
-import ink.usr.common.core.enums.StatusCode;
+import ink.usr.common.core.entity.Res;
+import ink.usr.common.core.entity.enums.StatusCode;
 import ink.usr.common.core.exception.UnauthenticatedException;
 import ink.usr.common.core.exception.WarningException;
 import ink.usr.common.core.exception.base.BusinessException;
@@ -53,9 +53,9 @@ public class GlobalExceptionHandler {
      * 未认证异常
      */
     @ExceptionHandler(UnauthenticatedException.class)
-    public Res handUnauthenticatedException(UnauthenticatedException e){
-       log.error(e.getMessage(), e);
-       return Res.error().setMsg(e.getMessage());
+    public Res handUnauthenticatedException(UnauthenticatedException e) {
+        log.error(e.getMessage(), e);
+        return Res.error().setMsg(e.getMessage());
     }
 
     /**

@@ -25,7 +25,7 @@ public class PageUtil {
     /**
      * 开始分页
      *
-     * @param count    是否进行count查询
+     * @param count 是否进行count查询
      */
     public static <E> Page<E> startPage(boolean count) {
         // 获取分页参数

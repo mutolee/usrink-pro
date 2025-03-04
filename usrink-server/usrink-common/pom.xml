@@ -15,10 +15,8 @@
     <description>通用的公共模块，该模块下的子模块往往都是主程序所要依赖的</description>
 
     <modules>
-        <module>usrink-common-interface</module>
-        <module>usrink-common-model</module>
         <module>usrink-common-core</module>
-        <module>usrink-common-domain</module>
+        <module>usrink-common-entity</module>
     </modules>
 
 

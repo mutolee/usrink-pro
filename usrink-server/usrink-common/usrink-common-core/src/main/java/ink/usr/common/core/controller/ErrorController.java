@@ -1,6 +1,6 @@
 package ink.usr.common.core.controller;
 
-import ink.usr.common.core.domain.Res;
+import ink.usr.common.core.entity.Res;
 import ink.usr.common.core.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
