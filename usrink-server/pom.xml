@@ -17,6 +17,7 @@
         <module>usrink-admin</module>
         <module>usrink-api</module>
         <module>usrink-framework</module>
+        <module>usrink-generate-code</module>
     </modules>
 
     <properties>
@@ -32,6 +33,7 @@
         <shiro-spring.version>1.13.0</shiro-spring.version>
         <jwt.version>4.2.1</jwt.version>
         <pagehelper.version>2.1.0</pagehelper.version>
+        <common-io.version>2.16.1</common-io.version>
     </properties>
 
     <!-- 仓库 -->
@@ -67,24 +69,10 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- 通用接口模块 -->
+            <!-- 通用实体模块 -->
             <dependency>
                 <groupId>ink.usr</groupId>
-                <artifactId>usrink-common-interface</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <!-- 数据库模型模块 -->
-            <dependency>
-                <groupId>ink.usr</groupId>
-                <artifactId>usrink-common-model</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <!-- 通用领域模块 -->
-            <dependency>
-                <groupId>ink.usr</groupId>
-                <artifactId>usrink-common-domain</artifactId>
+                <artifactId>usrink-common-entity</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -170,6 +158,13 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.version}</version>
+            </dependency>
+
+            <!-- apache common io -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${common-io.version}</version>
             </dependency>
 
         </dependencies>

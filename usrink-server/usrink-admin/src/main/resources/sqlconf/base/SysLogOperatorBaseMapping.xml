@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+//////////////////////////////////////////////////////////////////////////////////
+//
+//
+// SysLogOperator 的 BaseMapping.xml，自动生成，请勿修改。
+// 如有需要扩展，请自行创建新的 Mapping.xml。
+//
+// @author http://usr.ink
+// @date 2025-03-04 00:50:00
+//
+//
+//////////////////////////////////////////////////////////////////////////////////
+-->
+<mapper namespace="ink.usr.admin.mapper.base.SysLogOperatorBaseMapper">
+
+    <!-- 插入 -->
+    <insert id="insert" parameterType="ink.usr.common.entity.model.mysql.SysLogOperatorModel" keyProperty="logId" useGeneratedKeys="true">
+        <![CDATA[ INSERT INTO `sys_log_operator` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logId!=null and logId.toString()!=''">
+                <![CDATA[ `logId`, ]]>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ `userName`, ]]>
+            </if>
+            <if test="userRoleName!=null and userRoleName.toString()!=''">
+                <![CDATA[ `userRoleName`, ]]>
+            </if>
+            <if test="operatorDesc!=null and operatorDesc.toString()!=''">
+                <![CDATA[ `operatorDesc`, ]]>
+            </if>
+            <if test="reqUrl!=null and reqUrl.toString()!=''">
+                <![CDATA[ `reqUrl`, ]]>
+            </if>
+            <if test="reqMethod!=null and reqMethod.toString()!=''">
+                <![CDATA[ `reqMethod`, ]]>
+            </if>
+            <if test="reqParam!=null and reqParam.toString()!=''">
+                <![CDATA[ `reqParam`, ]]>
+            </if>
+            <if test="reqType!=null and reqType.toString()!=''">
+                <![CDATA[ `reqType`, ]]>
+            </if>
+            <if test="ipAddr!=null and ipAddr.toString()!=''">
+                <![CDATA[ `ipAddr`, ]]>
+            </if>
+            <if test="location!=null and location.toString()!=''">
+                <![CDATA[ `location`, ]]>
+            </if>
+            <if test="browser!=null and browser.toString()!=''">
+                <![CDATA[ `browser`, ]]>
+            </if>
+            <if test="os!=null and os.toString()!=''">
+                <![CDATA[ `os`, ]]>
+            </if>
+            <if test="result!=null and result.toString()!=''">
+                <![CDATA[ `result`, ]]>
+            </if>
+            <if test="costTime!=null and costTime.toString()!=''">
+                <![CDATA[ `costTime`, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime`, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status`, ]]>
+            </if>
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logId!=null and logId.toString()!=''">
+                <![CDATA[ #{logId}, ]]>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ #{userName}, ]]>
+            </if>
+            <if test="userRoleName!=null and userRoleName.toString()!=''">
+                <![CDATA[ #{userRoleName}, ]]>
+            </if>
+            <if test="operatorDesc!=null and operatorDesc.toString()!=''">
+                <![CDATA[ #{operatorDesc}, ]]>
+            </if>
+            <if test="reqUrl!=null and reqUrl.toString()!=''">
+                <![CDATA[ #{reqUrl}, ]]>
+            </if>
+            <if test="reqMethod!=null and reqMethod.toString()!=''">
+                <![CDATA[ #{reqMethod}, ]]>
+            </if>
+            <if test="reqParam!=null and reqParam.toString()!=''">
+                <![CDATA[ #{reqParam}, ]]>
+            </if>
+            <if test="reqType!=null and reqType.toString()!=''">
+                <![CDATA[ #{reqType}, ]]>
+            </if>
+            <if test="ipAddr!=null and ipAddr.toString()!=''">
+                <![CDATA[ #{ipAddr}, ]]>
+            </if>
+            <if test="location!=null and location.toString()!=''">
+                <![CDATA[ #{location}, ]]>
+            </if>
+            <if test="browser!=null and browser.toString()!=''">
+                <![CDATA[ #{browser}, ]]>
+            </if>
+            <if test="os!=null and os.toString()!=''">
+                <![CDATA[ #{os}, ]]>
+            </if>
+            <if test="result!=null and result.toString()!=''">
+                <![CDATA[ #{result}, ]]>
+            </if>
+            <if test="costTime!=null and costTime.toString()!=''">
+                <![CDATA[ #{costTime}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ #{createTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ #{status}, ]]>
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        <![CDATA[ INSERT INTO `sys_log_operator` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `userName`,
+            `userRoleName`,
+            `operatorDesc`,
+            `reqUrl`,
+            `reqMethod`,
+            `reqParam`,
+            `reqType`,
+            `ipAddr`,
+            `location`,
+            `browser`,
+            `os`,
+            `result`,
+            `costTime`,
+            `createTime`,
+            `status`
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <foreach collection="list" item="item" separator=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{item.userName},
+            #{item.userRoleName},
+            #{item.operatorDesc},
+            #{item.reqUrl},
+            #{item.reqMethod},
+            #{item.reqParam},
+            #{item.reqType},
+            #{item.ipAddr},
+            #{item.location},
+            #{item.browser},
+            #{item.os},
+            #{item.result},
+            #{item.costTime},
+            #{item.createTime},
+            #{item.status}
+        </trim>
+        </foreach>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="ink.usr.common.entity.model.mysql.SysLogOperatorModel">
+        <![CDATA[ UPDATE `sys_log_operator` ]]>
+        <set>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ `userName` = #{userName}, ]]>
+            </if>
+            <if test="userRoleName!=null and userRoleName.toString()!=''">
+                <![CDATA[ `userRoleName` = #{userRoleName}, ]]>
+            </if>
+            <if test="operatorDesc!=null and operatorDesc.toString()!=''">
+                <![CDATA[ `operatorDesc` = #{operatorDesc}, ]]>
+            </if>
+            <if test="reqUrl!=null and reqUrl.toString()!=''">
+                <![CDATA[ `reqUrl` = #{reqUrl}, ]]>
+            </if>
+            <if test="reqMethod!=null and reqMethod.toString()!=''">
+                <![CDATA[ `reqMethod` = #{reqMethod}, ]]>
+            </if>
+            <if test="reqParam!=null and reqParam.toString()!=''">
+                <![CDATA[ `reqParam` = #{reqParam}, ]]>
+            </if>
+            <if test="reqType!=null and reqType.toString()!=''">
+                <![CDATA[ `reqType` = #{reqType}, ]]>
+            </if>
+            <if test="ipAddr!=null and ipAddr.toString()!=''">
+                <![CDATA[ `ipAddr` = #{ipAddr}, ]]>
+            </if>
+            <if test="location!=null and location.toString()!=''">
+                <![CDATA[ `location` = #{location}, ]]>
+            </if>
+            <if test="browser!=null and browser.toString()!=''">
+                <![CDATA[ `browser` = #{browser}, ]]>
+            </if>
+            <if test="os!=null and os.toString()!=''">
+                <![CDATA[ `os` = #{os}, ]]>
+            </if>
+            <if test="result!=null and result.toString()!=''">
+                <![CDATA[ `result` = #{result}, ]]>
+            </if>
+            <if test="costTime!=null and costTime.toString()!=''">
+                <![CDATA[ `costTime` = #{costTime}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `logId` = #{logId} ]]>
+        </where>
+    </update>
+
+    <!-- 更新 -->
+    <update id="updateByMap" parameterType="java.util.Map">
+        <![CDATA[ UPDATE `sys_log_operator` ]]>
+        <set>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ `userName` = #{userName}, ]]>
+            </if>
+            <if test="userRoleName!=null and userRoleName.toString()!=''">
+                <![CDATA[ `userRoleName` = #{userRoleName}, ]]>
+            </if>
+            <if test="operatorDesc!=null and operatorDesc.toString()!=''">
+                <![CDATA[ `operatorDesc` = #{operatorDesc}, ]]>
+            </if>
+            <if test="reqUrl!=null and reqUrl.toString()!=''">
+                <![CDATA[ `reqUrl` = #{reqUrl}, ]]>
+            </if>
+            <if test="reqMethod!=null and reqMethod.toString()!=''">
+                <![CDATA[ `reqMethod` = #{reqMethod}, ]]>
+            </if>
+            <if test="reqParam!=null and reqParam.toString()!=''">
+                <![CDATA[ `reqParam` = #{reqParam}, ]]>
+            </if>
+            <if test="reqType!=null and reqType.toString()!=''">
+                <![CDATA[ `reqType` = #{reqType}, ]]>
+            </if>
+            <if test="ipAddr!=null and ipAddr.toString()!=''">
+                <![CDATA[ `ipAddr` = #{ipAddr}, ]]>
+            </if>
+            <if test="location!=null and location.toString()!=''">
+                <![CDATA[ `location` = #{location}, ]]>
+            </if>
+            <if test="browser!=null and browser.toString()!=''">
+                <![CDATA[ `browser` = #{browser}, ]]>
+            </if>
+            <if test="os!=null and os.toString()!=''">
+                <![CDATA[ `os` = #{os}, ]]>
+            </if>
+            <if test="result!=null and result.toString()!=''">
+                <![CDATA[ `result` = #{result}, ]]>
+            </if>
+            <if test="costTime!=null and costTime.toString()!=''">
+                <![CDATA[ `costTime` = #{costTime}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `logId` = #{logId} ]]>
+        </where>
+    </update>
+
+    <!-- 删除 -->
+    <delete id="delete" parameterType="java.util.Map">
+        <![CDATA[ DELETE FROM `sys_log_operator` ]]>
+        <where>
+            <if test="logId!=null and logId.toString()!=''">
+            <![CDATA[ AND `logId` = #{logId} ]]>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+            <![CDATA[ AND `userName` = #{userName} ]]>
+            </if>
+            <if test="userRoleName!=null and userRoleName.toString()!=''">
+            <![CDATA[ AND `userRoleName` = #{userRoleName} ]]>
+            </if>
+            <if test="operatorDesc!=null and operatorDesc.toString()!=''">
+            <![CDATA[ AND `operatorDesc` = #{operatorDesc} ]]>
+            </if>
+            <if test="reqUrl!=null and reqUrl.toString()!=''">
+            <![CDATA[ AND `reqUrl` = #{reqUrl} ]]>
+            </if>
+            <if test="reqMethod!=null and reqMethod.toString()!=''">
+            <![CDATA[ AND `reqMethod` = #{reqMethod} ]]>
+            </if>
+            <if test="reqParam!=null and reqParam.toString()!=''">
+            <![CDATA[ AND `reqParam` = #{reqParam} ]]>
+            </if>
+            <if test="reqType!=null and reqType.toString()!=''">
+            <![CDATA[ AND `reqType` = #{reqType} ]]>
+            </if>
+            <if test="ipAddr!=null and ipAddr.toString()!=''">
+            <![CDATA[ AND `ipAddr` = #{ipAddr} ]]>
+            </if>
+            <if test="location!=null and location.toString()!=''">
+            <![CDATA[ AND `location` = #{location} ]]>
+            </if>
+            <if test="browser!=null and browser.toString()!=''">
+            <![CDATA[ AND `browser` = #{browser} ]]>
+            </if>
+            <if test="os!=null and os.toString()!=''">
+            <![CDATA[ AND `os` = #{os} ]]>
+            </if>
+            <if test="result!=null and result.toString()!=''">
+            <![CDATA[ AND `result` = #{result} ]]>
+            </if>
+            <if test="costTime!=null and costTime.toString()!=''">
+            <![CDATA[ AND `costTime` = #{costTime} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+            <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+            <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </delete>
+
+    <!-- 查询记录 -->
+    <select id="getModelList" parameterType="java.util.Map" resultType="ink.usr.common.entity.model.mysql.SysLogOperatorModel">
+        <![CDATA[
+        SELECT
+            `logId`,
+            `userName`,
+            `userRoleName`,
+            `operatorDesc`,
+            `reqUrl`,
+            `reqMethod`,
+            `reqParam`,
+            `reqType`,
+            `ipAddr`,
+            `location`,
+            `browser`,
+            `os`,
+            `result`,
+            `costTime`,
+            `createTime`,
+            `status`
+        FROM
+            `sys_log_operator`
+        ]]>
+        <where>
+            <if test="logId!=null and logId.toString()!=''">
+                <![CDATA[ AND `logId` = #{logId} ]]>
+            </if>
+            <if test="logIds!=null and logIds.size() >= 1">
+                <![CDATA[ AND `logId` IN ]]>
+                <foreach collection="list" item="item" open="(" separator="," close=")">
+                 <![CDATA[ #{item} ]]>
+                </foreach>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ AND `userName` = #{userName} ]]>
+            </if>
+            <if test="userRoleName!=null and userRoleName.toString()!=''">
+                <![CDATA[ AND `userRoleName` = #{userRoleName} ]]>
+            </if>
+            <if test="operatorDesc!=null and operatorDesc.toString()!=''">
+                <![CDATA[ AND `operatorDesc` = #{operatorDesc} ]]>
+            </if>
+            <if test="reqUrl!=null and reqUrl.toString()!=''">
+                <![CDATA[ AND `reqUrl` = #{reqUrl} ]]>
+            </if>
+            <if test="reqMethod!=null and reqMethod.toString()!=''">
+                <![CDATA[ AND `reqMethod` = #{reqMethod} ]]>
+            </if>
+            <if test="reqParam!=null and reqParam.toString()!=''">
+                <![CDATA[ AND `reqParam` = #{reqParam} ]]>
+            </if>
+            <if test="reqType!=null and reqType.toString()!=''">
+                <![CDATA[ AND `reqType` = #{reqType} ]]>
+            </if>
+            <if test="ipAddr!=null and ipAddr.toString()!=''">
+                <![CDATA[ AND `ipAddr` = #{ipAddr} ]]>
+            </if>
+            <if test="location!=null and location.toString()!=''">
+                <![CDATA[ AND `location` = #{location} ]]>
+            </if>
+            <if test="browser!=null and browser.toString()!=''">
+                <![CDATA[ AND `browser` = #{browser} ]]>
+            </if>
+            <if test="os!=null and os.toString()!=''">
+                <![CDATA[ AND `os` = #{os} ]]>
+            </if>
+            <if test="result!=null and result.toString()!=''">
+                <![CDATA[ AND `result` = #{result} ]]>
+            </if>
+            <if test="costTime!=null and costTime.toString()!=''">
+                <![CDATA[ AND `costTime` = #{costTime} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </select>
+
+</mapper>

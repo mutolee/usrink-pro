@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+//////////////////////////////////////////////////////////////////////////////////
+//
+//
+// SysMenu 的 BaseMapping.xml，自动生成，请勿修改。
+// 如有需要扩展，请自行创建新的 Mapping.xml。
+//
+// @author http://usr.ink
+// @date 2025-03-04 00:50:09
+//
+//
+//////////////////////////////////////////////////////////////////////////////////
+-->
+<mapper namespace="ink.usr.admin.mapper.base.SysMenuBaseMapper">
+
+    <!-- 插入 -->
+    <insert id="insert" parameterType="ink.usr.common.entity.model.mysql.SysMenuModel" keyProperty="menuId" useGeneratedKeys="true">
+        <![CDATA[ INSERT INTO `sys_menu` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="menuId!=null and menuId.toString()!=''">
+                <![CDATA[ `menuId`, ]]>
+            </if>
+            <if test="menuName!=null and menuName.toString()!=''">
+                <![CDATA[ `menuName`, ]]>
+            </if>
+            <if test="orderIndex!=null and orderIndex.toString()!=''">
+                <![CDATA[ `orderIndex`, ]]>
+            </if>
+            <if test="icon!=null and icon.toString()!=''">
+                <![CDATA[ `icon`, ]]>
+            </if>
+            <if test="permKey!=null and permKey.toString()!=''">
+                <![CDATA[ `permKey`, ]]>
+            </if>
+            <if test="parentMenuId!=null and parentMenuId.toString()!=''">
+                <![CDATA[ `parentMenuId`, ]]>
+            </if>
+            <if test="sceneType!=null and sceneType.toString()!=''">
+                <![CDATA[ `sceneType`, ]]>
+            </if>
+            <if test="menuType!=null and menuType.toString()!=''">
+                <![CDATA[ `menuType`, ]]>
+            </if>
+            <if test="route!=null and route.toString()!=''">
+                <![CDATA[ `route`, ]]>
+            </if>
+            <if test="component!=null and component.toString()!=''">
+                <![CDATA[ `component`, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime`, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime`, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status`, ]]>
+            </if>
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="menuId!=null and menuId.toString()!=''">
+                <![CDATA[ #{menuId}, ]]>
+            </if>
+            <if test="menuName!=null and menuName.toString()!=''">
+                <![CDATA[ #{menuName}, ]]>
+            </if>
+            <if test="orderIndex!=null and orderIndex.toString()!=''">
+                <![CDATA[ #{orderIndex}, ]]>
+            </if>
+            <if test="icon!=null and icon.toString()!=''">
+                <![CDATA[ #{icon}, ]]>
+            </if>
+            <if test="permKey!=null and permKey.toString()!=''">
+                <![CDATA[ #{permKey}, ]]>
+            </if>
+            <if test="parentMenuId!=null and parentMenuId.toString()!=''">
+                <![CDATA[ #{parentMenuId}, ]]>
+            </if>
+            <if test="sceneType!=null and sceneType.toString()!=''">
+                <![CDATA[ #{sceneType}, ]]>
+            </if>
+            <if test="menuType!=null and menuType.toString()!=''">
+                <![CDATA[ #{menuType}, ]]>
+            </if>
+            <if test="route!=null and route.toString()!=''">
+                <![CDATA[ #{route}, ]]>
+            </if>
+            <if test="component!=null and component.toString()!=''">
+                <![CDATA[ #{component}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ #{updateTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ #{status}, ]]>
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        <![CDATA[ INSERT INTO `sys_menu` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `menuName`,
+            `orderIndex`,
+            `icon`,
+            `permKey`,
+            `parentMenuId`,
+            `sceneType`,
+            `menuType`,
+            `route`,
+            `component`,
+            `createTime`,
+            `updateTime`,
+            `status`
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <foreach collection="list" item="item" separator=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{item.menuName},
+            #{item.orderIndex},
+            #{item.icon},
+            #{item.permKey},
+            #{item.parentMenuId},
+            #{item.sceneType},
+            #{item.menuType},
+            #{item.route},
+            #{item.component},
+            #{item.createTime},
+            #{item.updateTime},
+            #{item.status}
+        </trim>
+        </foreach>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="ink.usr.common.entity.model.mysql.SysMenuModel">
+        <![CDATA[ UPDATE `sys_menu` ]]>
+        <set>
+            <if test="menuName!=null and menuName.toString()!=''">
+                <![CDATA[ `menuName` = #{menuName}, ]]>
+            </if>
+            <if test="orderIndex!=null and orderIndex.toString()!=''">
+                <![CDATA[ `orderIndex` = #{orderIndex}, ]]>
+            </if>
+            <if test="icon!=null and icon.toString()!=''">
+                <![CDATA[ `icon` = #{icon}, ]]>
+            </if>
+            <if test="permKey!=null and permKey.toString()!=''">
+                <![CDATA[ `permKey` = #{permKey}, ]]>
+            </if>
+            <if test="parentMenuId!=null and parentMenuId.toString()!=''">
+                <![CDATA[ `parentMenuId` = #{parentMenuId}, ]]>
+            </if>
+            <if test="sceneType!=null and sceneType.toString()!=''">
+                <![CDATA[ `sceneType` = #{sceneType}, ]]>
+            </if>
+            <if test="menuType!=null and menuType.toString()!=''">
+                <![CDATA[ `menuType` = #{menuType}, ]]>
+            </if>
+            <if test="route!=null and route.toString()!=''">
+                <![CDATA[ `route` = #{route}, ]]>
+            </if>
+            <if test="component!=null and component.toString()!=''">
+                <![CDATA[ `component` = #{component}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime` = #{updateTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `menuId` = #{menuId} ]]>
+        </where>
+    </update>
+
+    <!-- 更新 -->
+    <update id="updateByMap" parameterType="java.util.Map">
+        <![CDATA[ UPDATE `sys_menu` ]]>
+        <set>
+            <if test="menuName!=null and menuName.toString()!=''">
+                <![CDATA[ `menuName` = #{menuName}, ]]>
+            </if>
+            <if test="orderIndex!=null and orderIndex.toString()!=''">
+                <![CDATA[ `orderIndex` = #{orderIndex}, ]]>
+            </if>
+            <if test="icon!=null and icon.toString()!=''">
+                <![CDATA[ `icon` = #{icon}, ]]>
+            </if>
+            <if test="permKey!=null and permKey.toString()!=''">
+                <![CDATA[ `permKey` = #{permKey}, ]]>
+            </if>
+            <if test="parentMenuId!=null and parentMenuId.toString()!=''">
+                <![CDATA[ `parentMenuId` = #{parentMenuId}, ]]>
+            </if>
+            <if test="sceneType!=null and sceneType.toString()!=''">
+                <![CDATA[ `sceneType` = #{sceneType}, ]]>
+            </if>
+            <if test="menuType!=null and menuType.toString()!=''">
+                <![CDATA[ `menuType` = #{menuType}, ]]>
+            </if>
+            <if test="route!=null and route.toString()!=''">
+                <![CDATA[ `route` = #{route}, ]]>
+            </if>
+            <if test="component!=null and component.toString()!=''">
+                <![CDATA[ `component` = #{component}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime` = #{updateTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `menuId` = #{menuId} ]]>
+        </where>
+    </update>
+
+    <!-- 删除 -->
+    <delete id="delete" parameterType="java.util.Map">
+        <![CDATA[ DELETE FROM `sys_menu` ]]>
+        <where>
+            <if test="menuId!=null and menuId.toString()!=''">
+            <![CDATA[ AND `menuId` = #{menuId} ]]>
+            </if>
+            <if test="menuName!=null and menuName.toString()!=''">
+            <![CDATA[ AND `menuName` = #{menuName} ]]>
+            </if>
+            <if test="orderIndex!=null and orderIndex.toString()!=''">
+            <![CDATA[ AND `orderIndex` = #{orderIndex} ]]>
+            </if>
+            <if test="icon!=null and icon.toString()!=''">
+            <![CDATA[ AND `icon` = #{icon} ]]>
+            </if>
+            <if test="permKey!=null and permKey.toString()!=''">
+            <![CDATA[ AND `permKey` = #{permKey} ]]>
+            </if>
+            <if test="parentMenuId!=null and parentMenuId.toString()!=''">
+            <![CDATA[ AND `parentMenuId` = #{parentMenuId} ]]>
+            </if>
+            <if test="sceneType!=null and sceneType.toString()!=''">
+            <![CDATA[ AND `sceneType` = #{sceneType} ]]>
+            </if>
+            <if test="menuType!=null and menuType.toString()!=''">
+            <![CDATA[ AND `menuType` = #{menuType} ]]>
+            </if>
+            <if test="route!=null and route.toString()!=''">
+            <![CDATA[ AND `route` = #{route} ]]>
+            </if>
+            <if test="component!=null and component.toString()!=''">
+            <![CDATA[ AND `component` = #{component} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+            <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+            <![CDATA[ AND `updateTime` = #{updateTime} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+            <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </delete>
+
+    <!-- 查询记录 -->
+    <select id="getModelList" parameterType="java.util.Map" resultType="ink.usr.common.entity.model.mysql.SysMenuModel">
+        <![CDATA[
+        SELECT
+            `menuId`,
+            `menuName`,
+            `orderIndex`,
+            `icon`,
+            `permKey`,
+            `parentMenuId`,
+            `sceneType`,
+            `menuType`,
+            `route`,
+            `component`,
+            `createTime`,
+            `updateTime`,
+            `status`
+        FROM
+            `sys_menu`
+        ]]>
+        <where>
+            <if test="menuId!=null and menuId.toString()!=''">
+                <![CDATA[ AND `menuId` = #{menuId} ]]>
+            </if>
+            <if test="menuIds!=null and menuIds.size() >= 1">
+                <![CDATA[ AND `menuId` IN ]]>
+                <foreach collection="list" item="item" open="(" separator="," close=")">
+                 <![CDATA[ #{item} ]]>
+                </foreach>
+            </if>
+            <if test="menuName!=null and menuName.toString()!=''">
+                <![CDATA[ AND `menuName` = #{menuName} ]]>
+            </if>
+            <if test="orderIndex!=null and orderIndex.toString()!=''">
+                <![CDATA[ AND `orderIndex` = #{orderIndex} ]]>
+            </if>
+            <if test="icon!=null and icon.toString()!=''">
+                <![CDATA[ AND `icon` = #{icon} ]]>
+            </if>
+            <if test="permKey!=null and permKey.toString()!=''">
+                <![CDATA[ AND `permKey` = #{permKey} ]]>
+            </if>
+            <if test="parentMenuId!=null and parentMenuId.toString()!=''">
+                <![CDATA[ AND `parentMenuId` = #{parentMenuId} ]]>
+            </if>
+            <if test="sceneType!=null and sceneType.toString()!=''">
+                <![CDATA[ AND `sceneType` = #{sceneType} ]]>
+            </if>
+            <if test="menuType!=null and menuType.toString()!=''">
+                <![CDATA[ AND `menuType` = #{menuType} ]]>
+            </if>
+            <if test="route!=null and route.toString()!=''">
+                <![CDATA[ AND `route` = #{route} ]]>
+            </if>
+            <if test="component!=null and component.toString()!=''">
+                <![CDATA[ AND `component` = #{component} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ AND `updateTime` = #{updateTime} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </select>
+
+</mapper>
