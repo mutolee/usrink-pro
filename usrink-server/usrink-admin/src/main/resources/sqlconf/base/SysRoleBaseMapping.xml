@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+//////////////////////////////////////////////////////////////////////////////////
+//
+//
+// SysRole 的 BaseMapping.xml，自动生成，请勿修改。
+// 如有需要扩展，请自行创建新的 Mapping.xml。
+//
+// @author http://usr.ink
+// @date 2025-03-04 00:54:11
+//
+//
+//////////////////////////////////////////////////////////////////////////////////
+-->
+<mapper namespace="ink.usr.admin.mapper.base.SysRoleBaseMapper">
+
+    <!-- 插入 -->
+    <insert id="insert" parameterType="ink.usr.common.entity.model.mysql.SysRoleModel" keyProperty="roleId" useGeneratedKeys="true">
+        <![CDATA[ INSERT INTO `sys_role` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleId!=null and roleId.toString()!=''">
+                <![CDATA[ `roleId`, ]]>
+            </if>
+            <if test="roleName!=null and roleName.toString()!=''">
+                <![CDATA[ `roleName`, ]]>
+            </if>
+            <if test="rolePermKey!=null and rolePermKey.toString()!=''">
+                <![CDATA[ `rolePermKey`, ]]>
+            </if>
+            <if test="roleMenuIds!=null and roleMenuIds.toString()!=''">
+                <![CDATA[ `roleMenuIds`, ]]>
+            </if>
+            <if test="roleDesc!=null and roleDesc.toString()!=''">
+                <![CDATA[ `roleDesc`, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime`, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime`, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status`, ]]>
+            </if>
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleId!=null and roleId.toString()!=''">
+                <![CDATA[ #{roleId}, ]]>
+            </if>
+            <if test="roleName!=null and roleName.toString()!=''">
+                <![CDATA[ #{roleName}, ]]>
+            </if>
+            <if test="rolePermKey!=null and rolePermKey.toString()!=''">
+                <![CDATA[ #{rolePermKey}, ]]>
+            </if>
+            <if test="roleMenuIds!=null and roleMenuIds.toString()!=''">
+                <![CDATA[ #{roleMenuIds}, ]]>
+            </if>
+            <if test="roleDesc!=null and roleDesc.toString()!=''">
+                <![CDATA[ #{roleDesc}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ #{updateTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ #{status}, ]]>
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        <![CDATA[ INSERT INTO `sys_role` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `roleName`,
+            `rolePermKey`,
+            `roleMenuIds`,
+            `roleDesc`,
+            `createTime`,
+            `updateTime`,
+            `status`
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <foreach collection="list" item="item" separator=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{item.roleName},
+            #{item.rolePermKey},
+            #{item.roleMenuIds},
+            #{item.roleDesc},
+            #{item.createTime},
+            #{item.updateTime},
+            #{item.status}
+        </trim>
+        </foreach>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="ink.usr.common.entity.model.mysql.SysRoleModel">
+        <![CDATA[ UPDATE `sys_role` ]]>
+        <set>
+            <if test="roleName!=null and roleName.toString()!=''">
+                <![CDATA[ `roleName` = #{roleName}, ]]>
+            </if>
+            <if test="rolePermKey!=null and rolePermKey.toString()!=''">
+                <![CDATA[ `rolePermKey` = #{rolePermKey}, ]]>
+            </if>
+            <if test="roleMenuIds!=null and roleMenuIds.toString()!=''">
+                <![CDATA[ `roleMenuIds` = #{roleMenuIds}, ]]>
+            </if>
+            <if test="roleDesc!=null and roleDesc.toString()!=''">
+                <![CDATA[ `roleDesc` = #{roleDesc}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime` = #{updateTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `roleId` = #{roleId} ]]>
+        </where>
+    </update>
+
+    <!-- 更新 -->
+    <update id="updateByMap" parameterType="java.util.Map">
+        <![CDATA[ UPDATE `sys_role` ]]>
+        <set>
+            <if test="roleName!=null and roleName.toString()!=''">
+                <![CDATA[ `roleName` = #{roleName}, ]]>
+            </if>
+            <if test="rolePermKey!=null and rolePermKey.toString()!=''">
+                <![CDATA[ `rolePermKey` = #{rolePermKey}, ]]>
+            </if>
+            <if test="roleMenuIds!=null and roleMenuIds.toString()!=''">
+                <![CDATA[ `roleMenuIds` = #{roleMenuIds}, ]]>
+            </if>
+            <if test="roleDesc!=null and roleDesc.toString()!=''">
+                <![CDATA[ `roleDesc` = #{roleDesc}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime` = #{updateTime}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `roleId` = #{roleId} ]]>
+        </where>
+    </update>
+
+    <!-- 删除 -->
+    <delete id="delete" parameterType="java.util.Map">
+        <![CDATA[ DELETE FROM `sys_role` ]]>
+        <where>
+            <if test="roleId!=null and roleId.toString()!=''">
+            <![CDATA[ AND `roleId` = #{roleId} ]]>
+            </if>
+            <if test="roleName!=null and roleName.toString()!=''">
+            <![CDATA[ AND `roleName` = #{roleName} ]]>
+            </if>
+            <if test="rolePermKey!=null and rolePermKey.toString()!=''">
+            <![CDATA[ AND `rolePermKey` = #{rolePermKey} ]]>
+            </if>
+            <if test="roleMenuIds!=null and roleMenuIds.toString()!=''">
+            <![CDATA[ AND `roleMenuIds` = #{roleMenuIds} ]]>
+            </if>
+            <if test="roleDesc!=null and roleDesc.toString()!=''">
+            <![CDATA[ AND `roleDesc` = #{roleDesc} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+            <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+            <![CDATA[ AND `updateTime` = #{updateTime} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+            <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </delete>
+
+    <!-- 查询记录 -->
+    <select id="getModelList" parameterType="java.util.Map" resultType="ink.usr.common.entity.model.mysql.SysRoleModel">
+        <![CDATA[
+        SELECT
+            `roleId`,
+            `roleName`,
+            `rolePermKey`,
+            `roleMenuIds`,
+            `roleDesc`,
+            `createTime`,
+            `updateTime`,
+            `status`
+        FROM
+            `sys_role`
+        ]]>
+        <where>
+            <if test="roleId!=null and roleId.toString()!=''">
+                <![CDATA[ AND `roleId` = #{roleId} ]]>
+            </if>
+            <if test="roleIds!=null and roleIds.size() >= 1">
+                <![CDATA[ AND `roleId` IN ]]>
+                <foreach collection="list" item="item" open="(" separator="," close=")">
+                 <![CDATA[ #{item} ]]>
+                </foreach>
+            </if>
+            <if test="roleName!=null and roleName.toString()!=''">
+                <![CDATA[ AND `roleName` = #{roleName} ]]>
+            </if>
+            <if test="rolePermKey!=null and rolePermKey.toString()!=''">
+                <![CDATA[ AND `rolePermKey` = #{rolePermKey} ]]>
+            </if>
+            <if test="roleMenuIds!=null and roleMenuIds.toString()!=''">
+                <![CDATA[ AND `roleMenuIds` = #{roleMenuIds} ]]>
+            </if>
+            <if test="roleDesc!=null and roleDesc.toString()!=''">
+                <![CDATA[ AND `roleDesc` = #{roleDesc} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ AND `updateTime` = #{updateTime} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </select>
+
+</mapper>

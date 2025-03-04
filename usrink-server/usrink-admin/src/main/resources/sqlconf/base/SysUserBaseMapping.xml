@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+//////////////////////////////////////////////////////////////////////////////////
+//
+//
+// SysUser 的 BaseMapping.xml，自动生成，请勿修改。
+// 如有需要扩展，请自行创建新的 Mapping.xml。
+//
+// @author http://usr.ink
+// @date 2025-03-04 00:56:31
+//
+//
+//////////////////////////////////////////////////////////////////////////////////
+-->
+<mapper namespace="ink.usr.admin.mapper.base.SysUserBaseMapper">
+
+    <!-- 插入 -->
+    <insert id="insert" parameterType="ink.usr.common.entity.model.mysql.SysUserModel" keyProperty="userId" useGeneratedKeys="true">
+        <![CDATA[ INSERT INTO `sys_user` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId!=null and userId.toString()!=''">
+                <![CDATA[ `userId`, ]]>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ `userName`, ]]>
+            </if>
+            <if test="userPassword!=null and userPassword.toString()!=''">
+                <![CDATA[ `userPassword`, ]]>
+            </if>
+            <if test="userRoleId!=null and userRoleId.toString()!=''">
+                <![CDATA[ `userRoleId`, ]]>
+            </if>
+            <if test="userNick!=null and userNick.toString()!=''">
+                <![CDATA[ `userNick`, ]]>
+            </if>
+            <if test="avatar!=null and avatar.toString()!=''">
+                <![CDATA[ `avatar`, ]]>
+            </if>
+            <if test="email!=null and email.toString()!=''">
+                <![CDATA[ `email`, ]]>
+            </if>
+            <if test="phone!=null and phone.toString()!=''">
+                <![CDATA[ `phone`, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime`, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime`, ]]>
+            </if>
+            <if test="sex!=null and sex.toString()!=''">
+                <![CDATA[ `sex`, ]]>
+            </if>
+            <if test="salt!=null and salt.toString()!=''">
+                <![CDATA[ `salt`, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status`, ]]>
+            </if>
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId!=null and userId.toString()!=''">
+                <![CDATA[ #{userId}, ]]>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ #{userName}, ]]>
+            </if>
+            <if test="userPassword!=null and userPassword.toString()!=''">
+                <![CDATA[ #{userPassword}, ]]>
+            </if>
+            <if test="userRoleId!=null and userRoleId.toString()!=''">
+                <![CDATA[ #{userRoleId}, ]]>
+            </if>
+            <if test="userNick!=null and userNick.toString()!=''">
+                <![CDATA[ #{userNick}, ]]>
+            </if>
+            <if test="avatar!=null and avatar.toString()!=''">
+                <![CDATA[ #{avatar}, ]]>
+            </if>
+            <if test="email!=null and email.toString()!=''">
+                <![CDATA[ #{email}, ]]>
+            </if>
+            <if test="phone!=null and phone.toString()!=''">
+                <![CDATA[ #{phone}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ #{updateTime}, ]]>
+            </if>
+            <if test="sex!=null and sex.toString()!=''">
+                <![CDATA[ #{sex}, ]]>
+            </if>
+            <if test="salt!=null and salt.toString()!=''">
+                <![CDATA[ #{salt}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ #{status}, ]]>
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        <![CDATA[ INSERT INTO `sys_user` ]]>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `userName`,
+            `userPassword`,
+            `userRoleId`,
+            `userNick`,
+            `avatar`,
+            `email`,
+            `phone`,
+            `createTime`,
+            `updateTime`,
+            `sex`,
+            `salt`,
+            `status`
+        </trim>
+        <![CDATA[ VALUES ]]>
+        <foreach collection="list" item="item" separator=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{item.userName},
+            #{item.userPassword},
+            #{item.userRoleId},
+            #{item.userNick},
+            #{item.avatar},
+            #{item.email},
+            #{item.phone},
+            #{item.createTime},
+            #{item.updateTime},
+            #{item.sex},
+            #{item.salt},
+            #{item.status}
+        </trim>
+        </foreach>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="ink.usr.common.entity.model.mysql.SysUserModel">
+        <![CDATA[ UPDATE `sys_user` ]]>
+        <set>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ `userName` = #{userName}, ]]>
+            </if>
+            <if test="userPassword!=null and userPassword.toString()!=''">
+                <![CDATA[ `userPassword` = #{userPassword}, ]]>
+            </if>
+            <if test="userRoleId!=null and userRoleId.toString()!=''">
+                <![CDATA[ `userRoleId` = #{userRoleId}, ]]>
+            </if>
+            <if test="userNick!=null and userNick.toString()!=''">
+                <![CDATA[ `userNick` = #{userNick}, ]]>
+            </if>
+            <if test="avatar!=null and avatar.toString()!=''">
+                <![CDATA[ `avatar` = #{avatar}, ]]>
+            </if>
+            <if test="email!=null and email.toString()!=''">
+                <![CDATA[ `email` = #{email}, ]]>
+            </if>
+            <if test="phone!=null and phone.toString()!=''">
+                <![CDATA[ `phone` = #{phone}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime` = #{updateTime}, ]]>
+            </if>
+            <if test="sex!=null and sex.toString()!=''">
+                <![CDATA[ `sex` = #{sex}, ]]>
+            </if>
+            <if test="salt!=null and salt.toString()!=''">
+                <![CDATA[ `salt` = #{salt}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `userId` = #{userId} ]]>
+        </where>
+    </update>
+
+    <!-- 更新 -->
+    <update id="updateByMap" parameterType="java.util.Map">
+        <![CDATA[ UPDATE `sys_user` ]]>
+        <set>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ `userName` = #{userName}, ]]>
+            </if>
+            <if test="userPassword!=null and userPassword.toString()!=''">
+                <![CDATA[ `userPassword` = #{userPassword}, ]]>
+            </if>
+            <if test="userRoleId!=null and userRoleId.toString()!=''">
+                <![CDATA[ `userRoleId` = #{userRoleId}, ]]>
+            </if>
+            <if test="userNick!=null and userNick.toString()!=''">
+                <![CDATA[ `userNick` = #{userNick}, ]]>
+            </if>
+            <if test="avatar!=null and avatar.toString()!=''">
+                <![CDATA[ `avatar` = #{avatar}, ]]>
+            </if>
+            <if test="email!=null and email.toString()!=''">
+                <![CDATA[ `email` = #{email}, ]]>
+            </if>
+            <if test="phone!=null and phone.toString()!=''">
+                <![CDATA[ `phone` = #{phone}, ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ `createTime` = #{createTime}, ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ `updateTime` = #{updateTime}, ]]>
+            </if>
+            <if test="sex!=null and sex.toString()!=''">
+                <![CDATA[ `sex` = #{sex}, ]]>
+            </if>
+            <if test="salt!=null and salt.toString()!=''">
+                <![CDATA[ `salt` = #{salt}, ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ `status` = #{status}, ]]>
+            </if>
+        </set>
+        <where>
+            <![CDATA[ AND `userId` = #{userId} ]]>
+        </where>
+    </update>
+
+    <!-- 删除 -->
+    <delete id="delete" parameterType="java.util.Map">
+        <![CDATA[ DELETE FROM `sys_user` ]]>
+        <where>
+            <if test="userId!=null and userId.toString()!=''">
+            <![CDATA[ AND `userId` = #{userId} ]]>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+            <![CDATA[ AND `userName` = #{userName} ]]>
+            </if>
+            <if test="userPassword!=null and userPassword.toString()!=''">
+            <![CDATA[ AND `userPassword` = #{userPassword} ]]>
+            </if>
+            <if test="userRoleId!=null and userRoleId.toString()!=''">
+            <![CDATA[ AND `userRoleId` = #{userRoleId} ]]>
+            </if>
+            <if test="userNick!=null and userNick.toString()!=''">
+            <![CDATA[ AND `userNick` = #{userNick} ]]>
+            </if>
+            <if test="avatar!=null and avatar.toString()!=''">
+            <![CDATA[ AND `avatar` = #{avatar} ]]>
+            </if>
+            <if test="email!=null and email.toString()!=''">
+            <![CDATA[ AND `email` = #{email} ]]>
+            </if>
+            <if test="phone!=null and phone.toString()!=''">
+            <![CDATA[ AND `phone` = #{phone} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+            <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+            <![CDATA[ AND `updateTime` = #{updateTime} ]]>
+            </if>
+            <if test="sex!=null and sex.toString()!=''">
+            <![CDATA[ AND `sex` = #{sex} ]]>
+            </if>
+            <if test="salt!=null and salt.toString()!=''">
+            <![CDATA[ AND `salt` = #{salt} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+            <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </delete>
+
+    <!-- 查询记录 -->
+    <select id="getModelList" parameterType="java.util.Map" resultType="ink.usr.common.entity.model.mysql.SysUserModel">
+        <![CDATA[
+        SELECT
+            `userId`,
+            `userName`,
+            `userPassword`,
+            `userRoleId`,
+            `userNick`,
+            `avatar`,
+            `email`,
+            `phone`,
+            `createTime`,
+            `updateTime`,
+            `sex`,
+            `salt`,
+            `status`
+        FROM
+            `sys_user`
+        ]]>
+        <where>
+            <if test="userId!=null and userId.toString()!=''">
+                <![CDATA[ AND `userId` = #{userId} ]]>
+            </if>
+            <if test="userIds!=null and userIds.size() >= 1">
+                <![CDATA[ AND `userId` IN ]]>
+                <foreach collection="list" item="item" open="(" separator="," close=")">
+                 <![CDATA[ #{item} ]]>
+                </foreach>
+            </if>
+            <if test="userName!=null and userName.toString()!=''">
+                <![CDATA[ AND `userName` = #{userName} ]]>
+            </if>
+            <if test="userPassword!=null and userPassword.toString()!=''">
+                <![CDATA[ AND `userPassword` = #{userPassword} ]]>
+            </if>
+            <if test="userRoleId!=null and userRoleId.toString()!=''">
+                <![CDATA[ AND `userRoleId` = #{userRoleId} ]]>
+            </if>
+            <if test="userNick!=null and userNick.toString()!=''">
+                <![CDATA[ AND `userNick` = #{userNick} ]]>
+            </if>
+            <if test="avatar!=null and avatar.toString()!=''">
+                <![CDATA[ AND `avatar` = #{avatar} ]]>
+            </if>
+            <if test="email!=null and email.toString()!=''">
+                <![CDATA[ AND `email` = #{email} ]]>
+            </if>
+            <if test="phone!=null and phone.toString()!=''">
+                <![CDATA[ AND `phone` = #{phone} ]]>
+            </if>
+            <if test="createTime!=null and createTime.toString()!=''">
+                <![CDATA[ AND `createTime` = #{createTime} ]]>
+            </if>
+            <if test="updateTime!=null and updateTime.toString()!=''">
+                <![CDATA[ AND `updateTime` = #{updateTime} ]]>
+            </if>
+            <if test="sex!=null and sex.toString()!=''">
+                <![CDATA[ AND `sex` = #{sex} ]]>
+            </if>
+            <if test="salt!=null and salt.toString()!=''">
+                <![CDATA[ AND `salt` = #{salt} ]]>
+            </if>
+            <if test="status!=null and status.toString()!=''">
+                <![CDATA[ AND `status` = #{status} ]]>
+            </if>
+        </where>
+    </select>
+
+</mapper>
