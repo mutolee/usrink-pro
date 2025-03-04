@@ -1,7 +1,7 @@
 package ink.usr.framework.shiro.handler;
 
-import ink.usr.common.core.domain.Res;
-import ink.usr.common.core.enums.StatusCode;
+import ink.usr.common.core.entity.Res;
+import ink.usr.common.core.entity.enums.StatusCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.ShiroException;
 import org.apache.shiro.authc.AuthenticationException;

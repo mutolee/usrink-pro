@@ -1,7 +1,7 @@
 package ink.usr.framework.shiro.utils;
 
 import ink.usr.common.core.utils.JwtUtil;
-import ink.usr.framework.shiro.domain.ShiroUserInfo;
+import ink.usr.framework.shiro.entity.ShiroUserInfo;
 import ink.usr.framework.shiro.token.AuthenticationJwtToken;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;

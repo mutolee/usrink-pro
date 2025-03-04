@@ -1,7 +1,7 @@
 package ink.usr.framework.mysql.aspectj;
 
 import ink.usr.framework.mysql.DynamicDataSourceContextHolder;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -24,7 +24,7 @@ public class DataSourceAspectj {
      * 定义有一个切入点，范围为Dao层下的类的方法
      */
     @Pointcut("execution(public * ink.usr.*.dao.*Dao.*(..)) || " +
-              "execution(public * ink.usr.*.dao.base.*Dao.*(..))")
+            "execution(public * ink.usr.*.dao.base.*Dao.*(..))")
     public void daoPoint() {
     }
 
