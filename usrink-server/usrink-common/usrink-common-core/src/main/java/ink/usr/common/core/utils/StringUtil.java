@@ -102,6 +102,7 @@ public class StringUtil {
 
     /**
      * 随机生成指定长度的字符串
+     *
      * @param length
      * @return
      */
