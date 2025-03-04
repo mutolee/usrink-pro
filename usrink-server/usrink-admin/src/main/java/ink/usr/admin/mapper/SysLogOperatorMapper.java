@@ -1,8 +1,8 @@
 package ink.usr.admin.mapper;
 
 
-import ink.usr.common.domain.admin.SysLogOperatorForm;
-import ink.usr.common.model.mysql.SysLogOperatorModel;
+import ink.usr.common.entity.admin.form.SysLogOperatorForm;
+import ink.usr.common.entity.model.mysql.SysLogOperatorModel;
 
 import java.util.List;
 

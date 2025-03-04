@@ -1,14 +1,15 @@
 package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysMenuDao;
+import ink.usr.admin.service.base.SysLogLoginBaseService;
 import ink.usr.common.core.exception.base.BusinessException;
 import ink.usr.common.core.utils.CollUtil;
 import ink.usr.common.core.utils.StringUtil;
-import ink.usr.common.domain.admin.MenuPageInfo;
-import ink.usr.common.domain.admin.SysUserMenus;
-import ink.usr.common.interfaces.admin.ISysLoginService;
-import ink.usr.common.model.mysql.SysMenuModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.common.entity.admin.interfaces.ISysLoginService;
+import ink.usr.common.entity.admin.vo.MenuPageInfo;
+import ink.usr.common.entity.admin.vo.SysUserMenus;
+import ink.usr.common.entity.model.mysql.SysMenuModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
  * 登录服务
  */
 @Service("sysLoginService")
-public class SysLoginService implements ISysLoginService {
+public class SysLoginService extends SysLogLoginBaseService implements ISysLoginService {
 
     @Autowired
     private SysMenuDao sysMenuDao;

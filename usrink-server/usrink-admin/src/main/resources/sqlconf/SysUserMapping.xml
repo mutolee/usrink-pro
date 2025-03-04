@@ -21,21 +21,21 @@
 
     <!-- 登录，查询用户信息 -->
     <select id="selectSysUserForLogin" parameterType="java.lang.String"
-            resultType="ink.usr.common.model.mysql.SysUserModel">
+            resultType="ink.usr.common.entity.model.mysql.SysUserModel">
         <include refid="selectSysUserSql"/>
         where userName = #{userName} and status = 0
     </select>
 
     <!-- 根据用户ID，查询用户信息-->
     <select id="selectSysUserById" parameterType="java.lang.Long"
-            resultType="ink.usr.common.model.mysql.SysUserModel">
+            resultType="ink.usr.common.entity.model.mysql.SysUserModel">
         <include refid="selectSysUserSql"/>
         where userId = #{userId}
     </select>
 
     <!-- 查询用户列表 -->
-    <select id="selectSysUserList" parameterType="ink.usr.common.model.mysql.SysUserModel"
-            resultType="ink.usr.common.model.mysql.SysUserModel">
+    <select id="selectSysUserList" parameterType="ink.usr.common.entity.model.mysql.SysUserModel"
+            resultType="ink.usr.common.entity.model.mysql.SysUserModel">
         <include refid="selectSysUserSql"/>
         <where>
             <if test="userId != null">and userId = #{userId}</if>
@@ -50,7 +50,7 @@
     </select>
 
     <!-- 新增用户 -->
-    <insert id="insertSysUser" parameterType="ink.usr.common.model.mysql.SysUserModel" useGeneratedKeys="true"
+    <insert id="insertSysUser" parameterType="ink.usr.common.entity.model.mysql.SysUserModel" useGeneratedKeys="true"
             keyProperty="userId">
         insert into sys_user(
         <if test="userName != null and userName != ''">userName,</if>
@@ -83,13 +83,13 @@
 
     <!-- 查询用户名是否已经存在 -->
     <select id="checkUserNameUnique" parameterType="java.lang.String"
-            resultType="ink.usr.common.model.mysql.SysUserModel">
+            resultType="ink.usr.common.entity.model.mysql.SysUserModel">
         <include refid="selectSysUserSql"/>
         where userName = #{userName} limit 1
     </select>
 
     <!-- 修改用户 -->
-    <update id="updateSysUser" parameterType="ink.usr.common.model.mysql.SysUserModel">
+    <update id="updateSysUser" parameterType="ink.usr.common.entity.model.mysql.SysUserModel">
         update sys_user
         <set>
             <if test="userNick != null and userNick != ''">userNick = #{userNick},</if>
@@ -103,18 +103,17 @@
     </update>
 
     <!-- 更新用户角色 -->
-    <update id="updateSysUserRole" parameterType="ink.usr.common.model.mysql.SysUserModel">
+    <update id="updateSysUserRole" parameterType="ink.usr.common.entity.model.mysql.SysUserModel">
         update sys_user
         set userRoleId = #{userRoleId}
         where userId = #{userId}
     </update>
 
     <!-- 更新用户密码 -->
-    <update id="updateSysUserPassword" parameterType="ink.usr.common.model.mysql.SysUserModel">
+    <update id="updateSysUserPassword" parameterType="ink.usr.common.entity.model.mysql.SysUserModel">
         update sys_user
-        set
-            userPassword = #{userPassword},
-            salt = #{salt}
+        set userPassword = #{userPassword},
+            salt         = #{salt}
         where userId = #{userId}
     </update>
 

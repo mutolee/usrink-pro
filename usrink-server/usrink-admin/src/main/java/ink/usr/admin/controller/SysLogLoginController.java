@@ -2,12 +2,12 @@ package ink.usr.admin.controller;
 
 import com.github.pagehelper.Page;
 import ink.usr.common.core.annotation.Log;
-import ink.usr.common.core.domain.Dict;
-import ink.usr.common.core.domain.Res;
+import ink.usr.common.core.entity.Dict;
+import ink.usr.common.core.entity.Res;
 import ink.usr.common.core.utils.PageUtil;
-import ink.usr.common.domain.admin.SysLogLoginForm;
-import ink.usr.common.interfaces.admin.ISysLogLoginService;
-import ink.usr.common.model.mysql.SysLogLoginModel;
+import ink.usr.common.entity.admin.form.SysLogLoginForm;
+import ink.usr.common.entity.admin.interfaces.ISysLogLoginService;
+import ink.usr.common.entity.model.mysql.SysLogLoginModel;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,16 +1,17 @@
 package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysRoleDao;
-import ink.usr.common.interfaces.admin.ISysRoleService;
-import ink.usr.common.model.mysql.SysRoleModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.admin.service.base.SysRoleBaseService;
+import ink.usr.common.entity.admin.interfaces.ISysRoleService;
+import ink.usr.common.entity.model.mysql.SysRoleModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service(value = "sysRoleService")
-public class SysRoleService implements ISysRoleService {
+public class SysRoleService extends SysRoleBaseService implements ISysRoleService {
 
     @Autowired
     private SysRoleDao sysRoleDao;

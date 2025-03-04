@@ -1,11 +1,11 @@
 package ink.usr.admin.controller;
 
 import ink.usr.common.core.annotation.Log;
-import ink.usr.common.core.domain.Res;
+import ink.usr.common.core.entity.Res;
 import ink.usr.common.core.utils.ByteUtil;
 import ink.usr.common.core.utils.DateUtil;
 import ink.usr.common.core.utils.StringUtil;
-import ink.usr.common.domain.admin.*;
+import ink.usr.common.entity.admin.vo.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,15 +1,16 @@
 package ink.usr.admin.dao;
 
+import ink.usr.admin.dao.base.SysUserBaseDao;
 import ink.usr.admin.mapper.SysUserMapper;
-import ink.usr.common.model.mysql.SysUserModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.common.entity.model.mysql.SysUserModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository(value = "sysUserDao")
-public class SysUserDao {
+public class SysUserDao extends SysUserBaseDao {
 
     @Autowired
     private SysUserMapper sysUserMapper;

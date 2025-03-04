@@ -1,6 +1,6 @@
 package ink.usr.admin.mapper;
 
-import ink.usr.common.model.mysql.SysUserModel;
+import ink.usr.common.entity.model.mysql.SysUserModel;
 
 import java.util.List;
 

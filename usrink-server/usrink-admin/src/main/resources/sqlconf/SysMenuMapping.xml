@@ -19,8 +19,8 @@
     </sql>
 
     <!-- 查询菜单列表 -->
-    <select id="selectSysMenuList" parameterType="ink.usr.common.model.mysql.SysMenuModel"
-            resultType="ink.usr.common.model.mysql.SysMenuModel">
+    <select id="selectSysMenuList" parameterType="ink.usr.common.entity.model.mysql.SysMenuModel"
+            resultType="ink.usr.common.entity.model.mysql.SysMenuModel">
         <include refid="selectMenuSql"/>
         <where>
             <if test="menuName != null and menuName != ''">and menuName like concat('%', #{menuName}, '%')</if>
@@ -30,7 +30,7 @@
     </select>
 
     <!-- 添加菜单 -->
-    <insert id="insertSysMenu" parameterType="ink.usr.common.model.mysql.SysMenuModel" useGeneratedKeys="true"
+    <insert id="insertSysMenu" parameterType="ink.usr.common.entity.model.mysql.SysMenuModel" useGeneratedKeys="true"
             keyProperty="menuId">
         insert into sys_menu(
         <if test="menuName != null and menuName != ''">menuName,</if>
@@ -62,7 +62,7 @@
     </insert>
 
     <!-- 更新菜单 -->
-    <update id="updateSysMenu" parameterType="ink.usr.common.model.mysql.SysMenuModel">
+    <update id="updateSysMenu" parameterType="ink.usr.common.entity.model.mysql.SysMenuModel">
         update sys_menu
         <set>
             <if test="menuName != null and menuName != ''">menuName = #{menuName},</if>

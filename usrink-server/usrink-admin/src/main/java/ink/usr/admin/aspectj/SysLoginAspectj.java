@@ -1,8 +1,8 @@
 package ink.usr.admin.aspectj;
 
 import ink.usr.common.core.utils.*;
-import ink.usr.common.interfaces.admin.ISysLogLoginService;
-import ink.usr.common.model.mysql.SysLogLoginModel;
+import ink.usr.common.entity.admin.interfaces.ISysLogLoginService;
+import ink.usr.common.entity.model.mysql.SysLogLoginModel;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;

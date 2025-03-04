@@ -1,16 +1,17 @@
 package ink.usr.admin.dao;
 
+import ink.usr.admin.dao.base.SysLogLoginBaseDao;
 import ink.usr.admin.mapper.SysLogLoginMapper;
-import ink.usr.common.domain.admin.SysLogLoginForm;
-import ink.usr.common.model.mysql.SysLogLoginModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.common.entity.admin.form.SysLogLoginForm;
+import ink.usr.common.entity.model.mysql.SysLogLoginModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository(value = "sysLogLoginDao")
-public class SysLogLoginDao {
+public class SysLogLoginDao extends SysLogLoginBaseDao {
 
     @Autowired
     private SysLogLoginMapper sysLogLoginMapper;

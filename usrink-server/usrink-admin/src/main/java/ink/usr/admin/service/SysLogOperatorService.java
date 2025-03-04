@@ -1,17 +1,18 @@
 package ink.usr.admin.service;
 
 import ink.usr.admin.dao.SysLogOperatorDao;
-import ink.usr.common.domain.admin.SysLogOperatorForm;
-import ink.usr.common.interfaces.admin.ISysLogOperatorService;
-import ink.usr.common.model.mysql.SysLogOperatorModel;
-import ink.usr.framework.mysql.enums.Ds;
+import ink.usr.admin.service.base.SysLogOperatorBaseService;
+import ink.usr.common.entity.admin.form.SysLogOperatorForm;
+import ink.usr.common.entity.admin.interfaces.ISysLogOperatorService;
+import ink.usr.common.entity.model.mysql.SysLogOperatorModel;
+import ink.usr.framework.mysql.entity.enums.Ds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service(value = "sysLogOperatorService")
-public class SysLogOperatorService implements ISysLogOperatorService {
+public class SysLogOperatorService extends SysLogOperatorBaseService implements ISysLogOperatorService {
 
     @Autowired
     private SysLogOperatorDao sysLogOperatorDao;
