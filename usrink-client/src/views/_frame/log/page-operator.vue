@@ -572,11 +572,7 @@ const logOperatorInfoDialog = (row) => {
 }
 
 .usr_log_operator_panel {
-    height: calc(100vh - 60px - 72px);
-}
-
-:deep(.usr_log_operator_panel) .usr-descriptions-item .desc {
-    width: 340px;
+    height: 100%;
 }
 
 .code_info {

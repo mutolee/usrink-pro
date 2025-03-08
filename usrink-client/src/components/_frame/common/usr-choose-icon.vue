@@ -104,10 +104,10 @@ const searchIcon = () => {
     flex-wrap: wrap;
     column-gap: 10px;
     row-gap: 10px;
+    padding-right: 5px;
 }
 
 :deep(.choose_icon_list) .icon_item {
-    flex: 0 0 calc(20% - 10px); /* 每行 5 列，减去列间隙后每个格子占据的宽度 */
     box-sizing: border-box;
     border: 1px solid #ccc;
     padding: 10px;

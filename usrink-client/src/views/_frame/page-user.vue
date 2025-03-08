@@ -758,7 +758,7 @@ const deleteRole = () => {
 }
 
 .usr_user_panel_right {
-    width: 0;
+    min-width: 0;
     flex: 1;
 }
 

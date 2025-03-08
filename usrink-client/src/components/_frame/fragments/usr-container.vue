@@ -12,9 +12,7 @@ const containerPaddingLeft = computed(() => collapseStateStore.collapseState ? '
 </script>
 
 <template>
-    <section
-        class="usr_container"
-        :style="{paddingLeft:containerPaddingLeft}">
+    <section class="usr_container">
         <usr-container-header/>
         <usr-container-page/>
     </section>
@@ -22,8 +20,13 @@ const containerPaddingLeft = computed(() => collapseStateStore.collapseState ? '
 
 <style scoped>
 .usr_container {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    flex: 1; /* 该项目会扩展以填充多余空间 */
+    min-width: 0; /* 防止内容撑出父容器 */
+    min-height: 0;
     background-color: #f6f8f9;
-    transition: padding-left .5s;
+    display: flex;
+    flex-direction: column;
 }
 </style>

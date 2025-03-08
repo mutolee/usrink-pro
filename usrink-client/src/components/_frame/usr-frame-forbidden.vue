@@ -20,14 +20,20 @@
 
 .forbidden_panel {
     padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .usr_card_override {
-    height: calc(100vh - 90px - 20px - 20px - 2px);
+    flex: 1; /* 填充满剩余空间 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 :deep(.usr_card_override) .el-card__body {
-    height: calc(100% - 40px);
     display: flex;
     flex-direction: row;
     align-items: center;

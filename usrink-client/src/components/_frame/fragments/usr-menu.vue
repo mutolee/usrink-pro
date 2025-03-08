@@ -1,6 +1,6 @@
 <script setup>
 import usrMenuHeader from "@/components/_frame/fragments/usr-menu-header.vue";
-import {computed} from "vue";
+import {computed, ref, watch} from "vue";
 import {useCollapseStateStore} from "@/stores/_frame/collapseStateStore";
 import {useRoutesStore} from "@/stores/_frame/routesStore";
 import {useNavStore} from '@/stores/_frame/navStore'
@@ -13,10 +13,15 @@ const collapseStateStore = useCollapseStateStore()
 
 // 菜单折叠状态
 const collapseState = computed(() => collapseStateStore.collapseState)
-// 根据菜单折叠状态计算菜单的宽度
-const width = computed(() => collapseStateStore.collapseState ? '64px' : '220px')
-// Menu Height
-const height = computed(() => collapseStateStore.collapseState ? '60px' : '135px')
+// 是否使用手动宽度
+const useManualWidth = ref(false)
+// 监听折叠状态，如果折叠状态改变，则取消手动宽度
+watch(collapseState, () => useManualWidth.value = false)
+// 手动调节的宽度
+const manualWidth = ref(0);
+
+// computed
+const width = computed(() => collapseStateStore.collapseState ? '64' : '220');
 
 // Menu菜单列表
 const menus = computed(() => routesStore.menus)
@@ -26,14 +31,17 @@ const activeIndex = computed(() => navStore.routeInfo.id)
 // 菜单路由跳转
 const goTo = (path) => router.push(path)
 
+// 接收子组件传递的数据
+const handleMessage = (message) => {
+    manualWidth.value = message;
+    useManualWidth.value = true;
+};
 </script>
 
 <template>
-    <section
-        class="usr_menu"
-        :style="{width:width}">
-        <usr-menu-header/>
-        <div class="usr_menu_panel" :style="{height:'calc(100vh - ' + height + ')'}">
+    <section class="usr_menu" :style="{width : (useManualWidth ? manualWidth:width) + 'px'}">
+        <usr-menu-header @message-sent="handleMessage"/>
+        <div class="usr_menu_panel">
             <el-scrollbar>
                 <!-- 树形菜单，只支持三级菜单，够用！ -->
                 <el-menu
@@ -113,14 +121,19 @@ const goTo = (path) => router.push(path)
 
 <style scoped>
 .usr_menu {
-    height: 100vh;
-    float: left;
+    height: 100%;
+    flex-shrink: 0; /* 该项目不会缩小 */
     transition: width .5s;
+    display: flex;
+    flex-direction: column;
 }
 
 .usr_menu_panel {
     background-color: #191a23;
-    transition: height .5s;
+    transition: height .3s;
+    height: 100%;
+    flex: 1; /* 该项目会扩展以填充多余空间 */
+    min-height: 0; /* 防止挤到容器外 */
 }
 
 .el_menu_override {

@@ -534,7 +534,7 @@ const logLoginInfoDialog = (row) => {
 }
 
 .usr_log_login_panel {
-    height: calc(100vh - 60px - 72px);
+    height: 100%;
 }
 
 .code_info {

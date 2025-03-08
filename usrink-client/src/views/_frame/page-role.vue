@@ -488,7 +488,7 @@ const deleteRole = () => {
             </template>
         </el-dialog>
         <!-- 分配权限Dialog -->
-        <el-drawer class="usr_drawer_role_perm" v-model="permRoleDialogVisible" direction="rtl" size="350">
+        <el-drawer class="usr_drawer_role_perm" v-model="permRoleDialogVisible" direction="rtl" size="450">
             <template #header>
                 <h4>{{ permRoleDialogTitle }}</h4>
             </template>
@@ -587,7 +587,7 @@ const deleteRole = () => {
 }
 
 .usr_role_perm_panel {
-    height: calc(100vh - 60px - 72px);
+    height: 100%;
 }
 
 :deep(.usr_drawer_role_perm) .el-tree {
