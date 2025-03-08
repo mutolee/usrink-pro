@@ -250,6 +250,7 @@ const dropdownEvent = (command) => {
 <style scoped>
 .usr_container_header_navbar {
     height: 40px;
+    flex-shrink: 0; /* 该项目不会缩小 */
     position: relative;
 }
 

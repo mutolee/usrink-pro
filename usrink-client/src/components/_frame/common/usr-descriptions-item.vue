@@ -35,7 +35,7 @@
 
 .usr-descriptions-item .desc {
     flex: 1;
-    width: 0; /* 防止内容溢出，撑破父容器 */
+    min-width: 0; /* 防止内容溢出，撑破父容器 */
     line-height: 20px;
     word-wrap: break-word; /* 自动换行 */
 }

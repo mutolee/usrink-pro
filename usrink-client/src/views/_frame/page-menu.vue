@@ -462,8 +462,8 @@ const deleteMenu = () => {
                     <el-form-item label="图标">
                         <el-tooltip class="choose_icon_class" trigger="click" effect="light">
                             <template #content>
-                                <div style="padding: 10px 5px 10px 10px">
-                                    <UsrChooseIcon :height="180" @onConfirm="val => addMenuForm.icon = val"/>
+                                <div style="padding: 5px">
+                                    <UsrChooseIcon :height="200" @onConfirm="val => addMenuForm.icon = val"/>
                                 </div>
                             </template>
                             <el-input :prefix-icon="addMenuForm.icon" v-model="addMenuForm.icon" maxlength="50"
@@ -551,8 +551,8 @@ const deleteMenu = () => {
                     <el-form-item label="图标">
                         <el-tooltip class="choose_icon_class" trigger="click" effect="light">
                             <template #content>
-                                <div style="padding: 10px 5px 10px 10px">
-                                    <UsrChooseIcon :height="180" @onConfirm="val => updateForm.icon = val"/>
+                                <div style="padding: 5px">
+                                    <UsrChooseIcon :height="200" @onConfirm="val => updateForm.icon = val"/>
                                 </div>
                             </template>
                             <el-input :prefix-icon="updateForm.icon" v-model="updateForm.icon" maxlength="50"

@@ -31,6 +31,13 @@ const includes = computed(() => {
 
 <style scoped>
 .usr_container_page {
-    height: calc(100vh - 90px);
+    flex: 1;
+    height: 100%;
+    min-height: 0; /* 防止内容撑出父容器 */
+}
+
+/* 让el-scrollbar__view 100%，防止子节点 height 100% 失效 */
+:deep(.el-scrollbar) .el-scrollbar__view{
+    height: 100%;
 }
 </style>

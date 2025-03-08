@@ -1,6 +1,9 @@
 <script setup>
-import {computed, onMounted, ref, watch} from "vue";
+import {computed, onMounted, ref, watch, onUnmounted} from "vue";
 import {useCollapseStateStore} from "@/stores/_frame/collapseStateStore";
+
+// 定义自定义事件
+const emit = defineEmits(['message-sent']);
 
 const collapseStateStore = useCollapseStateStore();
 
@@ -36,34 +39,81 @@ watch(collapseState, (newVal) => {
     }
 })
 
+/********************************************************
+ * 拖拽菜单宽度
+ */
+const container = ref(null)
+const MIN_WIDTH = 200
+const MAX_WIDTH = 400
+let isDragging = false
+
+const startDrag = (e) => {
+    isDragging = true
+    document.addEventListener('mousemove', handleDrag)
+    document.addEventListener('mouseup', stopDrag)
+    e.preventDefault()
+}
+
+const handleDrag = (e) => {
+    if (!isDragging) return
+
+    const containerRect = container.value.getBoundingClientRect()
+    // 计算鼠标相对于容器左侧的位置
+    const rawWidth = e.clientX - containerRect.left
+    // 应用最小和最大宽度限制
+    let width = Math.max(MIN_WIDTH, Math.min(rawWidth, MAX_WIDTH))
+
+    // 触发自定义事件并传递数据
+    emit('message-sent', width);
+}
+
+const stopDrag = () => {
+    isDragging = false
+    document.removeEventListener('mousemove', handleDrag)
+    document.removeEventListener('mouseup', stopDrag)
+}
+
+onUnmounted(() => {
+    document.removeEventListener('mousemove', handleDrag)
+    document.removeEventListener('mouseup', stopDrag)
+})
+
 </script>
 
 <template>
-    <section
-        class="usr_menu_header"
-        :style="{height:height}">
-        <el-icon
-            :size="logoSize"
-            color="#FFFFFF"
-            :style="{marginBottom:marginBottom}">
-            <ElementPlus/>
-        </el-icon>
-        <div
-            class="usr_menu_header_txt"
-            :style="{height:fontHeight}">
-            <span v-show="showLogoName">usrink-pro-admin</span>
+    <section ref="container" class="usr_menu_header" :style="{height:height}">
+        <div class="usr_menu_header_panel">
+            <el-icon
+                :size="logoSize"
+                color="#FFFFFF"
+                :style="{marginBottom:marginBottom}">
+                <ElementPlus/>
+            </el-icon>
+            <div
+                class="usr_menu_header_txt"
+                :style="{height:fontHeight}">
+                <span v-show="showLogoName">usrink-pro-admin</span>
+            </div>
         </div>
+        <div class="divider" v-show="!collapseState" @mousedown="startDrag"></div>
     </section>
 </template>
 
 <style scoped>
 .usr_menu_header {
     display: flex;
-    flex-direction: column;
+    background: linear-gradient(90deg, #409eff 90%, #00537E 120%);
+    transition: height .3s;
+    flex-shrink: 0; /* 该项目不会缩小 */
+}
+
+.usr_menu_header .usr_menu_header_panel {
+    display: flex;
     align-items: center;
     justify-content: center;
-    transition: height .5s;
-    background: linear-gradient(90deg, #409eff 90%, #00537E 120%);
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
 }
 
 .usr_menu_header .el-icon {
@@ -74,5 +124,13 @@ watch(collapseState, (newVal) => {
     color: #ffffff;
     font-size: 20px;
     transition: height .5s;
+}
+
+.divider {
+    width: 5px;
+    cursor: col-resize;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
 }
 </style>

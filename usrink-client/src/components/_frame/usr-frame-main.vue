@@ -5,27 +5,14 @@ import {onMounted, watch} from "vue";
 import {useRoutesStore} from "@/stores/_frame/routesStore";
 import {useNavStore} from '@/stores/_frame/navStore'
 import {useRoute} from 'vue-router'
-import {useDocumentWHStore} from "@/stores/_frame/documentWHStore";
-import {useCollapseStateStore} from "@/stores/_frame/collapseStateStore";
 
 const routesStore = useRoutesStore()
-const collapseStateStore = useCollapseStateStore()
 const navStore = useNavStore()
-const documentWHStore = useDocumentWHStore()
 const route = useRoute()
 
 onMounted(() => {
     // 记录当前访问的 route
     routeRecord(route.path)
-
-    // 记录浏览器宽高
-    documentWHRecord();
-
-    // 添加窗口大小变化时的事件监听器，以实时更新 document 高度
-    window.addEventListener('resize', () => {
-        // 记录浏览器宽高
-        documentWHRecord();
-    });
 })
 
 // 监听当前路由`path`的变化
@@ -73,21 +60,6 @@ const pageCache = () => {
     }
 }
 
-/**
- * 记录浏览器宽高
- */
-const documentWHRecord = () => {
-    documentWHStore.wh.w = document.documentElement.clientWidth
-    documentWHStore.wh.h = document.documentElement.clientHeight
-
-    // 如果是移动端，隐藏左侧菜单
-    if (documentWHStore.wh.w < 768) {
-        if (!collapseStateStore.collapseState) {
-            collapseStateStore.collapseState = true
-        }
-    }
-}
-
 </script>
 
 <template>
@@ -99,6 +71,9 @@ const documentWHRecord = () => {
 
 <style scoped>
 .usr_frame_main {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 </style>

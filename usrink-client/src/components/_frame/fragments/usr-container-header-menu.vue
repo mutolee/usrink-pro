@@ -130,6 +130,7 @@ const logout = () => {
 <style scoped>
 .usr_container_header_menu {
     height: 50px;
+    flex-shrink: 0; /* 该项目不会缩小 */
     border-bottom: 1px solid #f4f4f4;
     box-sizing: border-box;
     display: flex;

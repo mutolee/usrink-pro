@@ -19,7 +19,6 @@ import store from "@/stores/index.js";
 import router from "@/router/index.js";
 
 
-
 /**
  * 第三方管理插件，所有的第三方的配置都在这里管理，不限于第三方的注册、配置等
  * @param app 根实例对象
@@ -42,7 +41,6 @@ const thirdPlugin = (app) => {
     // Nprogress工具配置
     // 配置不显示右上角的那个转圈进度
     NProgress.configure({showSpinner: false, speed: 600});
-
 }
 
 export default thirdPlugin

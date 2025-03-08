@@ -503,6 +503,7 @@ const loadJvmInfo = () => {
 
 .introduce_desc {
     flex: 1;
+    min-width: 0;
 }
 
 .introduce_desc .tit {
