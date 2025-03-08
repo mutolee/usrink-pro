@@ -2,18 +2,18 @@ create table sys_user
 (
     userId       bigint auto_increment comment '系统用户ID'
         primary key,
-    userName     varchar(15)    not null comment '系统用户名，登录名',
-    userPassword varchar(32)    not null comment '用户密码，登录密码',
+    userName     varchar(15)       not null comment '系统用户名，登录名',
+    userPassword varchar(32)       not null comment '用户密码，登录密码',
     userRoleId   bigint default 3  not null comment '用户角色ID，默认角色为默认角色',
-    userNick     varchar(16)    null comment '用户昵称，显示的昵称',
-    avatar       varchar(150)   null comment '用户头像地址',
-    email        varchar(30)    null comment '用户邮箱',
-    phone        varchar(20)    null comment '用户电话号码',
-    createTime   varchar(30)    null comment '创建时间',
-    updateTime   varchar(30)    null comment '更新时间',
-    sex          int default -1 null comment '性别，0为女，1为男，-1为未知，默认-1',
-    salt         varchar(6)     not null comment '加密盐',
-    status       int default 0  null comment '用户状态，0表示正常，-1表示禁用不可登录，默认0。',
+    userNick     varchar(16)       null comment '用户昵称，显示的昵称',
+    avatar       varchar(150)      null comment '用户头像地址',
+    email        varchar(30)       null comment '用户邮箱',
+    phone        varchar(20)       null comment '用户电话号码',
+    createTime   varchar(30)       null comment '创建时间',
+    updateTime   varchar(30)       null comment '更新时间',
+    sex          int    default -1 null comment '性别，0为女，1为男，-1为未知，默认-1',
+    salt         varchar(6)        not null comment '加密盐',
+    status       int    default 0  null comment '用户状态，0表示正常，-1表示禁用不可登录，默认0。',
     constraint sys_user_pk
         unique (userName)
 )
@@ -284,3 +284,10 @@ INSERT INTO sys_menu (menuId, menuName, orderIndex, icon, permKey, parentMenuId,
                       createTime, updateTime, status)
 VALUES (45, '修改头像', 1, null, 'user:profile:updateAvatar', 23, 0, 2, null, null, '2024-04-01 00:00:00',
         '2024-04-01 00:00:00', 0);
+insert into sys_menu (menuId, menuName, orderIndex, icon, permKey, parentMenuId, sceneType, menuType, route, component,
+                      createTime, updateTime, status)
+values (46, '开发', 2, 'Menu', null, 0, 0, 0, null, null, '2024-04-01 00:00:00', '2024-04-01 00:00:00', 0);
+insert into sys_menu (menuId, menuName, orderIndex, icon, permKey, parentMenuId, sceneType, menuType, route, component,
+                      createTime, updateTime, status)
+values (47, 'Api 调试工具', 1, 'DocumentCopy', null, 46, 0, 1, '/develop/apitest', '/develop/post-woman',
+        '2024-04-01 00:00:00', '2024-04-01 00:00:00', 0);
