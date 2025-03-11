@@ -68,12 +68,16 @@
             <if test="menuName != null and menuName != ''">menuName = #{menuName},</if>
             <if test="orderIndex != null">orderIndex = #{orderIndex},</if>
             <if test="icon != null and icon != ''">icon = #{icon},</if>
+            <if test="icon == null || icon == ''">icon = null,</if>
             <if test="permKey != null and permKey != ''">permKey = #{permKey},</if>
+            <if test="permKey == null || permKey == ''">permKey = null,</if>
             <if test="parentMenuId != null">parentMenuId = #{parentMenuId},</if>
             <if test="sceneType != null">sceneType = #{sceneType},</if>
             <if test="menuType != null">menuType = #{menuType},</if>
             <if test="route != null and route != ''">route = #{route},</if>
+            <if test="route == null || route == ''">route = null,</if>
             <if test="component != null and component != ''">component = #{component},</if>
+            <if test="component == null || component == ''">component = null,</if>
             updateTime = now()
         </set>
         where menuId = #{menuId}
