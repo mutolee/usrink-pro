@@ -25,7 +25,7 @@ create table sys_role
         primary key,
     roleName    varchar(20)   not null comment '角色名称',
     rolePermKey varchar(20)   not null comment '角色权限标识符',
-    roleMenuIds varchar(200)  null comment '角色拥有的菜单集合，也就是角色对应的权限集合，由菜单ID以“,”分割。',
+    roleMenuIds varchar(2000) null comment '角色拥有的菜单集合，也就是角色对应的权限集合，由菜单ID以“,”分割。',
     roleDesc    varchar(50)   null comment '角色描述',
     createTime  varchar(30)   null comment '创建时间',
     updateTime  varchar(30)   null comment '更新时间',
