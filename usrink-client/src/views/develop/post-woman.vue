@@ -155,9 +155,13 @@ const requestHeaders = computed(() => {
 
 // 发送请求
 const sendRequest = async () => {
-    // 请求Url不能为空
+    // 验证请求URL
     if (dataModel.value.url === '') {
         ElMessage.warning('请求URL不能为空！')
+        return;
+    }
+    if(!/^https?:\/\//.test(dataModel.value.url)){
+        ElMessage.warning('请求URL必须http://或https://开头！')
         return;
     }
 
