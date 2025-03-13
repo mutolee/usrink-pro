@@ -38,7 +38,7 @@ public class ${classData.simpleName} extends BaseDao <Long, ${classData.simpleNa
     }
 
     @Override
-    protected BaseMapper <${classData.simpleNamePre}Model> getBaseMapper() {
+    protected BaseMapper<${classData.simpleNamePre}Model> getBaseMapper() {
         return ${classData.simpleNamePreLow}BaseMapper;
     }
     //
